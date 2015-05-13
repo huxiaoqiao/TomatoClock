@@ -8,4 +8,4 @@
 #import "WXApi.h"
 #import "WeiboSDK.h"
 #import "ShowShareSDK.h"
-
+#import "Macros.h"

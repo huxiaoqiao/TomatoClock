@@ -10,14 +10,14 @@
 	<string>TomatoClock</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>21E22DBCE5AB7FD4F21BCEE670AD6D5B08F8B305</key>
+		<key>995698D7CCE7C600203CF924701B530881A9A9B0</key>
 		<string>https://github.com/huxiaoqiao/TomatoClock.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TomatoClock.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>21E22DBCE5AB7FD4F21BCEE670AD6D5B08F8B305</key>
+		<key>995698D7CCE7C600203CF924701B530881A9A9B0</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>21E22DBCE5AB7FD4F21BCEE670AD6D5B08F8B305</string>
+	<string>995698D7CCE7C600203CF924701B530881A9A9B0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>21E22DBCE5AB7FD4F21BCEE670AD6D5B08F8B305</string>
+			<string>995698D7CCE7C600203CF924701B530881A9A9B0</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TomatoClock</string>
 		</dict>
