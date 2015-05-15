@@ -30,6 +30,10 @@ class TimeSettingView: UIView {
     @IBOutlet weak var longrestTimeSwitch: UISlider!
     
     override func awakeFromNib() {
+        
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 3
+        
         if (NSUserDefaults.standardUserDefaults().valueForKey("workTime") == nil)
         {
             workTimeSwitch.value = 25

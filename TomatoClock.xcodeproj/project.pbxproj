@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22B4AD5592894A9EEF4821A6 /* Pods_TomatoClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F3E3DF57096670AA3A1BC /* Pods_TomatoClock.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		442CA9261B05F7E7003B73B3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9251B05F7E7003B73B3 /* ModalViewController.swift */; };
+		442CA9281B05F810003B73B3 /* PresentingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9271B05F810003B73B3 /* PresentingAnimator.swift */; };
+		442CA92A1B05F87B003B73B3 /* DismissingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9291B05F87B003B73B3 /* DismissingAnimator.swift */; };
+		442CA92C1B05FA45003B73B3 /* TimeSettingModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442CA92B1B05FA45003B73B3 /* TimeSettingModalViewController.xib */; };
 		443733C91AB17DB400CE408F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443733C81AB17DB400CE408F /* SystemConfiguration.framework */; };
 		443733CB1AB17DC700CE408F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443733CA1AB17DC700CE408F /* QuartzCore.framework */; };
 		443733CD1AB17DD100CE408F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443733CC1AB17DD100CE408F /* CoreTelephony.framework */; };
@@ -84,6 +89,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00DAFCB1DE2EF02CAC7D6CCE /* Pods-TomatoClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomatoClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomatoClock/Pods-TomatoClock.debug.xcconfig"; sourceTree = "<group>"; };
+		442CA9251B05F7E7003B73B3 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		442CA9271B05F810003B73B3 /* PresentingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentingAnimator.swift; sourceTree = "<group>"; };
+		442CA9291B05F87B003B73B3 /* DismissingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissingAnimator.swift; sourceTree = "<group>"; };
+		442CA92B1B05FA45003B73B3 /* TimeSettingModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimeSettingModalViewController.xib; path = CustomTransition/Modal/TimeSettingModalViewController.xib; sourceTree = "<group>"; };
 		443733C81AB17DB400CE408F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		443733CA1AB17DC700CE408F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		443733CC1AB17DD100CE408F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -158,6 +168,8 @@
 		44EAC7A81A27ECAB00B461E2 /* TomatoClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EAC7AD1A27ECAB00B461E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44EAC7AE1A27ECAB00B461E2 /* TomatoClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoClockTests.swift; sourceTree = "<group>"; };
+		764D114E2618F123FD5E9DB8 /* Pods-TomatoClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomatoClock.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomatoClock/Pods-TomatoClock.release.xcconfig"; sourceTree = "<group>"; };
+		980F3E3DF57096670AA3A1BC /* Pods_TomatoClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomatoClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +199,7 @@
 				443733CB1AB17DC700CE408F /* QuartzCore.framework in Frameworks */,
 				443733C91AB17DB400CE408F /* SystemConfiguration.framework in Frameworks */,
 				44D5165E1B03848C00592221 /* ShareSDK.framework in Frameworks */,
+				22B4AD5592894A9EEF4821A6 /* Pods_TomatoClock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +213,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		442CA9221B05F7C4003B73B3 /* CustomTransition */ = {
+			isa = PBXGroup;
+			children = (
+				442CA9231B05F7C4003B73B3 /* Animatior */,
+				442CA9241B05F7C4003B73B3 /* Modal */,
+			);
+			path = CustomTransition;
+			sourceTree = "<group>";
+		};
+		442CA9231B05F7C4003B73B3 /* Animatior */ = {
+			isa = PBXGroup;
+			children = (
+				442CA9271B05F810003B73B3 /* PresentingAnimator.swift */,
+				442CA9291B05F87B003B73B3 /* DismissingAnimator.swift */,
+			);
+			path = Animatior;
+			sourceTree = "<group>";
+		};
+		442CA9241B05F7C4003B73B3 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				442CA9251B05F7E7003B73B3 /* ModalViewController.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		44A7CAFD1AB82D2D0008E587 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +253,7 @@
 				443733CC1AB17DD100CE408F /* CoreTelephony.framework */,
 				443733CA1AB17DC700CE408F /* QuartzCore.framework */,
 				443733C81AB17DB400CE408F /* SystemConfiguration.framework */,
+				980F3E3DF57096670AA3A1BC /* Pods_TomatoClock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,10 +289,12 @@
 		44D515EE1B0381F100592221 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				442CA9221B05F7C4003B73B3 /* CustomTransition */,
 				44D515F61B03834300592221 /* RingSelectView.swift */,
 				44D515F71B03834300592221 /* RingSelectView.xib */,
 				44D515F81B03834300592221 /* TimeSettingView.swift */,
 				44D515F91B03834300592221 /* TimeSettingView.xib */,
+				442CA92B1B05FA45003B73B3 /* TimeSettingModalViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +455,7 @@
 				44A7CAFD1AB82D2D0008E587 /* Frameworks */,
 				44EAC7AB1A27ECAB00B461E2 /* TomatoClockTests */,
 				44EAC7941A27ECAB00B461E2 /* Products */,
+				CB48C48A7FC0813BAD5D8A5C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -463,6 +506,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CB48C48A7FC0813BAD5D8A5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00DAFCB1DE2EF02CAC7D6CCE /* Pods-TomatoClock.debug.xcconfig */,
+				764D114E2618F123FD5E9DB8 /* Pods-TomatoClock.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -470,9 +522,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44EAC7B21A27ECAB00B461E2 /* Build configuration list for PBXNativeTarget "TomatoClock" */;
 			buildPhases = (
+				C5BEDFD412071A252E558287 /* Check Pods Manifest.lock */,
 				44EAC78F1A27ECAB00B461E2 /* Sources */,
 				44EAC7901A27ECAB00B461E2 /* Frameworks */,
 				44EAC7911A27ECAB00B461E2 /* Resources */,
+				F2BBFF945342365525EC5037 /* Embed Pods Frameworks */,
+				719ED8F7F38440F8992C1F84 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -553,6 +608,7 @@
 				44D516241B03842C00592221 /* Beacon.m4r in Resources */,
 				44D516251B03842C00592221 /* BellTower.m4r in Resources */,
 				44D516231B03842C00592221 /* Bark.m4r in Resources */,
+				442CA92C1B05FA45003B73B3 /* TimeSettingModalViewController.xib in Resources */,
 				44D516201B03842C00592221 /* Alarm.m4r in Resources */,
 				44D5162C1B03842C00592221 /* Constellation.m4r in Resources */,
 				44D516671B03851200592221 /* Images.xcassets in Resources */,
@@ -586,17 +642,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		719ED8F7F38440F8992C1F84 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TomatoClock/Pods-TomatoClock-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5BEDFD412071A252E558287 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2BBFF945342365525EC5037 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TomatoClock/Pods-TomatoClock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		44EAC78F1A27ECAB00B461E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442CA9281B05F810003B73B3 /* PresentingAnimator.swift in Sources */,
 				44D5160A1B03839B00592221 /* TomatoViewController.swift in Sources */,
 				44D515FC1B03834300592221 /* TimeSettingView.swift in Sources */,
 				44D516091B03839B00592221 /* SettingViewController.swift in Sources */,
 				44D515F51B03830C00592221 /* ShowShareSDK.m in Sources */,
 				44D516081B03839B00592221 /* RestViewController.swift in Sources */,
 				44D516631B0384B800592221 /* Conguration.swift in Sources */,
+				442CA9261B05F7E7003B73B3 /* ModalViewController.swift in Sources */,
+				442CA92A1B05F87B003B73B3 /* DismissingAnimator.swift in Sources */,
 				44D515FF1B03836600592221 /* KYCircularProgress.swift in Sources */,
 				44D515FA1B03834300592221 /* RingSelectView.swift in Sources */,
 				44EAC7991A27ECAB00B461E2 /* AppDelegate.swift in Sources */,
@@ -732,6 +839,7 @@
 		};
 		44EAC7B31A27ECAB00B461E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00DAFCB1DE2EF02CAC7D6CCE /* Pods-TomatoClock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -772,6 +880,7 @@
 		};
 		44EAC7B41A27ECAB00B461E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 764D114E2618F123FD5E9DB8 /* Pods-TomatoClock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;

@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 
-
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //添加微信应用
         ShareSDK.connectWeChatWithAppId(WeiChatAppId, appSecret: WeiChatAppSecret, wechatCls: WXApi.classForCoder())
+        
+        
         
         return true
     }

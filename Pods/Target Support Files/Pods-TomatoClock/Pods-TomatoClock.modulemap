@@ -1,0 +1,6 @@
+framework module Pods_TomatoClock {
+  umbrella header "Pods-TomatoClock-umbrella.h"
+
+  export *
+  module * { export * }
+}

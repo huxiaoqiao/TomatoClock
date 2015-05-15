@@ -9,3 +9,4 @@
 #import "WeiboSDK.h"
 #import "ShowShareSDK.h"
 #import "Macros.h"
+#import <Pop.h>
