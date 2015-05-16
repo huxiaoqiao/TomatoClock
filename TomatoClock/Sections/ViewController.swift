@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController , UITextFieldDelegate{
+
+class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTransitioningDelegate{
 
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var beginButton: UIButton!
@@ -51,8 +52,6 @@ class ViewController: UIViewController , UITextFieldDelegate{
             self.shortrestLabel.text = "\(conguration.shortrestTime)分钟"
             self.longrestLabel.text = "\(conguration.longrestTime)分钟"
         }
-        
-        
         
         
     }
@@ -102,18 +101,25 @@ class ViewController: UIViewController , UITextFieldDelegate{
     
     func showSettingView(){
         
-        timeSettingView = NSBundle.mainBundle().loadNibNamed("TimeSettingView", owner: self, options: nil)[0] as! TimeSettingView
-        timeSettingView.center = CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2)
+//        timeSettingView = NSBundle.mainBundle().loadNibNamed("TimeSettingView", owner: self, options: nil)[0] as! TimeSettingView
+//        timeSettingView.center = CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2)
+//        
+//       self.view.addSubview(timeSettingView)
+//        
+//        timeSettingView.alpha = 0
+//        timeSettingView.transform = CGAffineTransformMakeScale(0.01, 0.01)
+//        
+//        UIView.animateWithDuration(0.3, animations: { () -> Void in
+//            self.timeSettingView.alpha = 1
+//            self.timeSettingView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+//        })
         
-       self.view.addSubview(timeSettingView)
+        let timeSetModalVC:TimeSetModalViewController = TimeSetModalViewController()
+        timeSetModalVC.transitioningDelegate = self
+        timeSetModalVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         
-        timeSettingView.alpha = 0
-        timeSettingView.transform = CGAffineTransformMakeScale(0.01, 0.01)
+        self .presentViewController(timeSetModalVC, animated: true, completion: nil)
         
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
-            self.timeSettingView.alpha = 1
-            self.timeSettingView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-        })
     }
     
     
@@ -135,6 +141,15 @@ class ViewController: UIViewController , UITextFieldDelegate{
                Conguration.saveTaskTitle(taskTextField.text)
             }
         }
+    }
+    
+     //MARK: - UIViewControllerTransitioningDelegate
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ShowShareSDK().presentingAnimator() as? UIViewControllerAnimatedTransitioning
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ShowShareSDK().dismissingAnimator() as? UIViewControllerAnimatedTransitioning
     }
     
 }

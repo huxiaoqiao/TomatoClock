@@ -1,5 +1,5 @@
 //
-//  ModalViewController.swift
+//  TimeSetModalViewController.swift
 //  TomatoClock
 //
 //  Created by XiaoqiaoHu on 15/5/15.
@@ -8,12 +8,19 @@
 
 import UIKit
 
-class ModalViewController: UIViewController {
+class TimeSetModalViewController: ModalViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.layer.cornerRadius = 4
-        self.view.clipsToBounds = true
+
+        self.view.backgroundColor = UIColor .redColor()
+        var timeSettingView = NSBundle.mainBundle().loadNibNamed("TimeSettingView", owner: self, options: nil)[0] as! TimeSettingView
+            timeSettingView.timeSetModalVC = self
+        
+       // timeSettingView.center = self.view.center
+        
+        self.view.addSubview(timeSettingView)
+
         
         // Do any additional setup after loading the view.
     }
@@ -33,5 +40,17 @@ class ModalViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - 确定
+    @IBAction func doneClicked(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - 取消
+    @IBAction func cancelClicked(sender: AnyObject){
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }

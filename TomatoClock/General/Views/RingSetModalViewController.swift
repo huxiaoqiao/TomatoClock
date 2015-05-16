@@ -1,5 +1,5 @@
 //
-//  ModalViewController.swift
+//  RingSetModalViewController.swift
 //  TomatoClock
 //
 //  Created by XiaoqiaoHu on 15/5/15.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ModalViewController: UIViewController {
+class RingSetModalViewController: ModalViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.layer.cornerRadius = 4
-        self.view.clipsToBounds = true
-        
+
         // Do any additional setup after loading the view.
     }
 

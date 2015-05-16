@@ -6,7 +6,11 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "WXApi.h"
+#import "PresentingAnimator.h"
+#import "DismissingAnimator.h"
 #import "WeiboSDK.h"
 #import "ShowShareSDK.h"
 #import "Macros.h"
-#import <Pop.h>
+
+
+

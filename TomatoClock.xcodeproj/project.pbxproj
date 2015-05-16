@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		22B4AD5592894A9EEF4821A6 /* Pods_TomatoClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F3E3DF57096670AA3A1BC /* Pods_TomatoClock.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		442CA9261B05F7E7003B73B3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9251B05F7E7003B73B3 /* ModalViewController.swift */; };
-		442CA9281B05F810003B73B3 /* PresentingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9271B05F810003B73B3 /* PresentingAnimator.swift */; };
-		442CA92A1B05F87B003B73B3 /* DismissingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9291B05F87B003B73B3 /* DismissingAnimator.swift */; };
-		442CA92C1B05FA45003B73B3 /* TimeSettingModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442CA92B1B05FA45003B73B3 /* TimeSettingModalViewController.xib */; };
+		442CA9301B05FBF5003B73B3 /* TimeSetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA92F1B05FBF5003B73B3 /* TimeSetModalViewController.swift */; };
+		442CA9331B05FC2F003B73B3 /* RingSetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9311B05FC2F003B73B3 /* RingSetModalViewController.swift */; };
+		442CA94F1B062105003B73B3 /* DismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 442CA94C1B062105003B73B3 /* DismissingAnimator.m */; };
+		442CA9501B062105003B73B3 /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 442CA94E1B062105003B73B3 /* PresentingAnimator.m */; };
 		443733C91AB17DB400CE408F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443733C81AB17DB400CE408F /* SystemConfiguration.framework */; };
 		443733CB1AB17DC700CE408F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443733CA1AB17DC700CE408F /* QuartzCore.framework */; };
 		443733CD1AB17DD100CE408F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443733CC1AB17DD100CE408F /* CoreTelephony.framework */; };
@@ -91,9 +92,12 @@
 /* Begin PBXFileReference section */
 		00DAFCB1DE2EF02CAC7D6CCE /* Pods-TomatoClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomatoClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomatoClock/Pods-TomatoClock.debug.xcconfig"; sourceTree = "<group>"; };
 		442CA9251B05F7E7003B73B3 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
-		442CA9271B05F810003B73B3 /* PresentingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentingAnimator.swift; sourceTree = "<group>"; };
-		442CA9291B05F87B003B73B3 /* DismissingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissingAnimator.swift; sourceTree = "<group>"; };
-		442CA92B1B05FA45003B73B3 /* TimeSettingModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimeSettingModalViewController.xib; path = CustomTransition/Modal/TimeSettingModalViewController.xib; sourceTree = "<group>"; };
+		442CA92F1B05FBF5003B73B3 /* TimeSetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSetModalViewController.swift; sourceTree = "<group>"; };
+		442CA9311B05FC2F003B73B3 /* RingSetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingSetModalViewController.swift; sourceTree = "<group>"; };
+		442CA94B1B062105003B73B3 /* DismissingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissingAnimator.h; sourceTree = "<group>"; };
+		442CA94C1B062105003B73B3 /* DismissingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissingAnimator.m; sourceTree = "<group>"; };
+		442CA94D1B062105003B73B3 /* PresentingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingAnimator.h; sourceTree = "<group>"; };
+		442CA94E1B062105003B73B3 /* PresentingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingAnimator.m; sourceTree = "<group>"; };
 		443733C81AB17DB400CE408F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		443733CA1AB17DC700CE408F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		443733CC1AB17DD100CE408F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -216,19 +220,9 @@
 		442CA9221B05F7C4003B73B3 /* CustomTransition */ = {
 			isa = PBXGroup;
 			children = (
-				442CA9231B05F7C4003B73B3 /* Animatior */,
 				442CA9241B05F7C4003B73B3 /* Modal */,
 			);
 			path = CustomTransition;
-			sourceTree = "<group>";
-		};
-		442CA9231B05F7C4003B73B3 /* Animatior */ = {
-			isa = PBXGroup;
-			children = (
-				442CA9271B05F810003B73B3 /* PresentingAnimator.swift */,
-				442CA9291B05F87B003B73B3 /* DismissingAnimator.swift */,
-			);
-			path = Animatior;
 			sourceTree = "<group>";
 		};
 		442CA9241B05F7C4003B73B3 /* Modal */ = {
@@ -294,7 +288,8 @@
 				44D515F71B03834300592221 /* RingSelectView.xib */,
 				44D515F81B03834300592221 /* TimeSettingView.swift */,
 				44D515F91B03834300592221 /* TimeSettingView.xib */,
-				442CA92B1B05FA45003B73B3 /* TimeSettingModalViewController.xib */,
+				442CA92F1B05FBF5003B73B3 /* TimeSetModalViewController.swift */,
+				442CA9311B05FC2F003B73B3 /* RingSetModalViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,6 +328,10 @@
 		44D515F21B03822500592221 /* OC */ = {
 			isa = PBXGroup;
 			children = (
+				442CA94B1B062105003B73B3 /* DismissingAnimator.h */,
+				442CA94C1B062105003B73B3 /* DismissingAnimator.m */,
+				442CA94D1B062105003B73B3 /* PresentingAnimator.h */,
+				442CA94E1B062105003B73B3 /* PresentingAnimator.m */,
 				44D516681B03857C00592221 /* TomatoClock-Bridging-Header.h */,
 				44D515F31B03830C00592221 /* ShowShareSDK.h */,
 				44D515F41B03830C00592221 /* ShowShareSDK.m */,
@@ -608,7 +607,6 @@
 				44D516241B03842C00592221 /* Beacon.m4r in Resources */,
 				44D516251B03842C00592221 /* BellTower.m4r in Resources */,
 				44D516231B03842C00592221 /* Bark.m4r in Resources */,
-				442CA92C1B05FA45003B73B3 /* TimeSettingModalViewController.xib in Resources */,
 				44D516201B03842C00592221 /* Alarm.m4r in Resources */,
 				44D5162C1B03842C00592221 /* Constellation.m4r in Resources */,
 				44D516671B03851200592221 /* Images.xcassets in Resources */,
@@ -695,22 +693,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				442CA9281B05F810003B73B3 /* PresentingAnimator.swift in Sources */,
 				44D5160A1B03839B00592221 /* TomatoViewController.swift in Sources */,
 				44D515FC1B03834300592221 /* TimeSettingView.swift in Sources */,
 				44D516091B03839B00592221 /* SettingViewController.swift in Sources */,
 				44D515F51B03830C00592221 /* ShowShareSDK.m in Sources */,
 				44D516081B03839B00592221 /* RestViewController.swift in Sources */,
 				44D516631B0384B800592221 /* Conguration.swift in Sources */,
+				442CA9301B05FBF5003B73B3 /* TimeSetModalViewController.swift in Sources */,
+				442CA9501B062105003B73B3 /* PresentingAnimator.m in Sources */,
 				442CA9261B05F7E7003B73B3 /* ModalViewController.swift in Sources */,
-				442CA92A1B05F87B003B73B3 /* DismissingAnimator.swift in Sources */,
 				44D515FF1B03836600592221 /* KYCircularProgress.swift in Sources */,
 				44D515FA1B03834300592221 /* RingSelectView.swift in Sources */,
 				44EAC7991A27ECAB00B461E2 /* AppDelegate.swift in Sources */,
 				44D5160B1B03839B00592221 /* ViewController.swift in Sources */,
 				44D516071B03839B00592221 /* CheckViewController.swift in Sources */,
 				44D5160D1B0383BC00592221 /* Macros.swift in Sources */,
+				442CA9331B05FC2F003B73B3 /* RingSetModalViewController.swift in Sources */,
 				44D516061B03839B00592221 /* AboutViewController.swift in Sources */,
+				442CA94F1B062105003B73B3 /* DismissingAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

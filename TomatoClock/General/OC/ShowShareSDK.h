@@ -12,9 +12,14 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import "DismissingAnimator.h"
+#import "PresentingAnimator.h"
 
 @interface ShowShareSDK : NSObject
 
 - (void)showShareSDK:(id<ISSContainer>) container content:(id<ISSContent>)content;
+
+- (id)dismissingAnimator;
+- (id)presentingAnimator;
 
 @end

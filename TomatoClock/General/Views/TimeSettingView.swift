@@ -17,6 +17,9 @@ class TimeSettingView: UIView {
         // Drawing code
     }
     */
+    
+    var timeSetModalVC:TimeSetModalViewController?
+    
     @IBOutlet weak var workTimeLabel: UILabel!
 
     @IBOutlet weak var workTimeSwitch: UISlider!
@@ -32,7 +35,7 @@ class TimeSettingView: UIView {
     override func awakeFromNib() {
         
         self.clipsToBounds = true
-        self.layer.cornerRadius = 3
+        //self.layer.cornerRadius = 3
         
         if (NSUserDefaults.standardUserDefaults().valueForKey("workTime") == nil)
         {
@@ -97,13 +100,11 @@ class TimeSettingView: UIView {
     }
     
     func close(){
-    UIView.animateWithDuration(0.3, animations: { () -> Void in
-            self.alpha = 0
-            self.transform = CGAffineTransformMakeScale(0.01, 0.01)
-        }) { (finished:Bool) -> Void in
-            self.removeFromSuperview()
-        }
+        
+ 
     
+        self.timeSetModalVC!.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
 }

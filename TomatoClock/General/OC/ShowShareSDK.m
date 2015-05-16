@@ -36,4 +36,13 @@
     
 }
 
+- (id)dismissingAnimator
+{
+    return [DismissingAnimator new];
+}
+- (id)presentingAnimator
+{
+    return [PresentingAnimator new];
+}
+
 @end
