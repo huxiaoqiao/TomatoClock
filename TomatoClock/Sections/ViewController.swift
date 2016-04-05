@@ -35,8 +35,8 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
         
         inputOkButton.hidden = true
         
-        var image = UIImage(named: "bg_edittext_off")
-        var editTextOffImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
+        let image = UIImage(named: "bg_edittext_off")
+        let editTextOffImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
         editTextImgView.image = editTextOffImg;
         
         let conguration = Conguration.getConguration()
@@ -65,15 +65,15 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
     
     func textFieldDidBeginEditing(textField: UITextField) {
         inputOkButton.hidden = false
-        var image = UIImage(named: "bg_edittext_on")
-        var editTextOnImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
+        let image = UIImage(named: "bg_edittext_on")
+        let editTextOnImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
         editTextImgView.image = editTextOnImg
     }
     
     @IBAction func inputOk(sender: UIButton) {
         inputOkButton.hidden = true
-        var image = UIImage(named: "bg_edittext_off")
-        var editTextOffImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
+        let image = UIImage(named: "bg_edittext_off")
+        let editTextOffImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
         editTextImgView.image = editTextOffImg;
         
         taskTextField.resignFirstResponder()
@@ -129,7 +129,7 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
         if (segue.identifier == "tomato")
         {
             
-         var tomato:TomatoViewController! = segue.destinationViewController as! TomatoViewController
+         let tomato:TomatoViewController! = segue.destinationViewController as! TomatoViewController
             let conguration = Conguration.getConguration()
            tomato.tomatoTime = Double(conguration.workTime * 60)
             Conguration.saveTomatoAndRestNum(1, restNum: 0)
@@ -138,7 +138,7 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
             {
                Conguration.saveTaskTitle("未命名任务")
             }else{
-               Conguration.saveTaskTitle(taskTextField.text)
+               Conguration.saveTaskTitle(taskTextField.text!)
             }
         }
     }

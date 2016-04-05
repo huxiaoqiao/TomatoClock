@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -91,9 +91,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhZ-nO-aCo">
-                    <rect key="frame" x="121" y="139" width="20" height="21"/>
+                    <rect key="frame" x="121" y="139" width="25" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="Zou-kp-EfG"/>
+                        <constraint firstAttribute="width" constant="25" id="Zou-kp-EfG"/>
                         <constraint firstAttribute="height" constant="21" id="uOW-px-4sA"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -127,9 +127,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkP-eF-oPL">
-                    <rect key="frame" x="121" y="212" width="20" height="21"/>
+                    <rect key="frame" x="121" y="212" width="25" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="aox-81-fXS"/>
+                        <constraint firstAttribute="width" constant="25" id="aox-81-fXS"/>
                         <constraint firstAttribute="height" constant="21" id="tzF-Va-Ouw"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -137,7 +137,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分钟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-jZ-oJp">
-                    <rect key="frame" x="149" y="212" width="34" height="21"/>
+                    <rect key="frame" x="154" y="212" width="34" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="Rmw-zg-UZt"/>
                         <constraint firstAttribute="height" constant="21" id="fjs-Na-MRO"/>
@@ -212,7 +212,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分钟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDP-0G-9jc">
-                    <rect key="frame" x="149" y="139" width="34" height="21"/>
+                    <rect key="frame" x="154" y="139" width="34" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="1CY-yT-b43"/>
                         <constraint firstAttribute="height" constant="21" id="wb7-km-o1P"/>
@@ -299,9 +299,4 @@
         <image name="shortrest_gray" width="20" height="20"/>
         <image name="tomato_gray" width="20" height="20"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

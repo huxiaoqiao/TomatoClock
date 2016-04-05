@@ -34,12 +34,6 @@ class CheckViewController: UIViewController {
     @IBOutlet weak var leftQuotesImgView: UIImageView!
     @IBOutlet weak var rightQuotesImgView: UIImageView!
     
-    let imagePath:String = NSBundle.mainBundle().pathForResource("icon_76", ofType: "png")!
-    //分享内容
-    var publishContent:ISSContent!
-    //菜单容器
-    var containner:ISSContainer!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         doneButton.layer.cornerRadius = SCREEN_WIDTH / 320.0 * 75
@@ -55,44 +49,20 @@ class CheckViewController: UIViewController {
         rightButton.layer.borderColor = UIColor.whiteColor().CGColor
         rightButton.layer.borderWidth = 0.5
         taskTitleLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("TaskTitle") as? String
-        println(taskTitleLabel.text)
+
         let tomato_break = UIImage(named: "tomato_break");
         
         checkUndoneTitles = ["都已经开始了,离完成还远吗？","坚持一下，胜利就在前方！"]
         checkDoneTitles = ["我是超人，手指一戳，任务完成！","好开心，经过\(Conguration.getTomatoNum().tomatoNum)个番茄的奋战和\(Conguration.getTomatoNum().restNum)次休息，终于完成！"]
+        
        
-        //构造分享内容
-        publishContent = ShareSDK.content("分享内容", defaultContent: "测试一下", image: ShareSDK.imageWithPath(imagePath), title: "简洁高效的番茄时钟", url: "http://user.qzone.qq.com/1766862099/2", description: "番茄时钟", mediaType: SSPublishContentMediaTypeNews)!
-        //创建弹出菜单容器
-        containner = ShareSDK.container()
-        
-        //如果分享成功
-        
-        NSNotificationCenter.defaultCenter().addObserverForName("shareSuccess", object: nil, queue: nil) { (note:NSNotification!) -> Void in
-//            var alertView = UIAlertController(title: "提示", message: "分享成功", preferredStyle: UIAlertControllerStyle.Alert)
-//            let confirmAction = UIAlertAction(title: "确认", style: UIAlertActionStyle.Default, handler: nil)
-//            alertView.addAction(confirmAction)
-//            
-//            self.presentViewController(alertView, animated: true, completion: nil)
-        }
-        
-    }
+}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func doneButtonDidClick(sender: AnyObject) {
         if !didClicked
@@ -220,8 +190,8 @@ class CheckViewController: UIViewController {
     @IBAction func leftButtonDidClick(sender: AnyObject) {
         if(self.isChecked == false){
             //开始休息
-            var storyBoard = UIStoryboard(name: "Main", bundle: nil);
-            var rest = storyBoard.instantiateViewControllerWithIdentifier("RestViewController") as! RestViewController
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil);
+            let rest = storyBoard.instantiateViewControllerWithIdentifier("RestViewController") as! RestViewController
             let conguration = Conguration.getConguration()
             rest.tomatoTime = Double(conguration.shortrestTime * 60)
             rest.taskTitle = taskTitleLabel.text
@@ -234,17 +204,16 @@ class CheckViewController: UIViewController {
         }else{
             //分享成果
             //弹出分享框
-            
-            ShowShareSDK().showShareSDK(containner, content: publishContent)
-            
+            ShareSDKTool.showShareActionSheet()
+ 
         }
     }
     //右边按钮事件
     @IBAction func rightButtonDidClick(sender: AnyObject) {
         if(self.isChecked == false){
             //开始工作
-            var storyBoard = UIStoryboard(name: "Main", bundle: nil);
-            var tomato = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil);
+            let tomato = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
             let conguration = Conguration.getConguration()
             tomato.tomatoTime = Double(conguration.workTime * 60)
             tomato.taskTitle = taskTitleLabel.text
@@ -256,8 +225,8 @@ class CheckViewController: UIViewController {
             
         }else{
             //开始新的
-            var storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            var main = storyBoard.instantiateInitialViewController() as! ViewController
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let main = storyBoard.instantiateInitialViewController() as! ViewController
             main.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             self.presentViewController(main, animated: true, completion: { () -> Void in
                 self.removeFromParentViewController()

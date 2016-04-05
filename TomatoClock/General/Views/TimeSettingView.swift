@@ -37,6 +37,11 @@ class TimeSettingView: UIView {
         self.clipsToBounds = true
         //self.layer.cornerRadius = 3
         
+        self.workTimeSwitch.setThumbImage(UIImage(named: "button_slider"), forState: UIControlState.Normal)
+        self.shortrestTimeSwitch.setThumbImage(UIImage(named: "button_slider"), forState: UIControlState.Normal)
+        self.longrestTimeSwitch.setThumbImage(UIImage(named: "button_slider"), forState: UIControlState.Normal)
+        
+        
         if (NSUserDefaults.standardUserDefaults().valueForKey("workTime") == nil)
         {
             workTimeSwitch.value = 25

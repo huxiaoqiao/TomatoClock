@@ -60,7 +60,7 @@ class KYCircularProgress: UIView {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         setup()
     }
     
@@ -79,7 +79,7 @@ class KYCircularProgress: UIView {
         gradientLayer.startPoint = CGPointMake(0, 0);
         gradientLayer.endPoint = CGPointMake(1, 0);
         gradientLayer.mask = self.progressView.shapeLayer();
-        gradientLayer.colors = self.colors ?? [colorHex(0x9ACDE7).CGColor!, colorHex(0xE7A5C9).CGColor!]
+        gradientLayer.colors = self.colors ?? [colorHex(0x9ACDE7).CGColor, colorHex(0xE7A5C9).CGColor]
         
         self.layer.addSublayer(gradientLayer)
         self.progressView.shapeLayer().strokeColor = self.tintColor.CGColor
@@ -100,10 +100,10 @@ class KYCircularProgress: UIView {
         var convertedColors: [AnyObject] = []
         if let inputColors = self.colors {
             for hexColor in inputColors {
-                convertedColors.append(self.colorHex(hexColor).CGColor!)
+                convertedColors.append(self.colorHex(hexColor).CGColor)
             }
         } else {
-            convertedColors = [self.colorHex(0x9ACDE7).CGColor!, self.colorHex(0xE7A5C9).CGColor!]
+            convertedColors = [self.colorHex(0x9ACDE7).CGColor, self.colorHex(0xE7A5C9).CGColor]
         }
         self.gradientLayer.colors = convertedColors
     }
@@ -123,7 +123,7 @@ class KYCircularShapeView: UIView {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     override init(frame: CGRect) {
@@ -141,7 +141,7 @@ class KYCircularShapeView: UIView {
     }
     
     private func layoutPath() -> UIBezierPath {
-        var halfWidth = CGFloat(self.frame.size.width / 2.0)
+        let halfWidth = CGFloat(self.frame.size.width / 2.0)
         return UIBezierPath(arcCenter: CGPointMake(halfWidth, halfWidth), radius: halfWidth - self.shapeLayer().lineWidth, startAngle: CGFloat(self.startAngle), endAngle: CGFloat(self.endAngle), clockwise: true)
     }
     

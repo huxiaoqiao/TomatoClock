@@ -111,8 +111,8 @@ class Conguration: NSObject {
     
     class func getTomatoNum()-> (tomatoNum:Int,restNum:Int){
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        var tomatoNum = userDefaults.integerForKey("tomatoNum")
-        var restNum = userDefaults.integerForKey("restNum")
+        let tomatoNum = userDefaults.integerForKey("tomatoNum")
+        let restNum = userDefaults.integerForKey("restNum")
         return (tomatoNum,restNum)
     }
     

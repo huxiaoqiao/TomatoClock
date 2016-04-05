@@ -14,7 +14,7 @@ class TimeSetModalViewController: ModalViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor .redColor()
-        var timeSettingView = NSBundle.mainBundle().loadNibNamed("TimeSettingView", owner: self, options: nil)[0] as! TimeSettingView
+        let timeSettingView = NSBundle.mainBundle().loadNibNamed("TimeSettingView", owner: self, options: nil)[0] as! TimeSettingView
             timeSettingView.timeSetModalVC = self
         
        // timeSettingView.center = self.view.center

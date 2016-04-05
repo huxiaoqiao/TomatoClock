@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -87,7 +88,7 @@
                                     <constraint firstAttribute="height" constant="30" id="T4a-lS-mEU"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="IZf-3k-BEB"/>
@@ -101,7 +102,7 @@
                                     <constraint firstAttribute="width" constant="51" id="cdQ-yY-P84"/>
                                     <constraint firstAttribute="height" constant="21" id="x6g-aN-arB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -128,7 +129,7 @@
                                     <constraint firstAttribute="width" constant="51" id="1Qe-Py-0o0"/>
                                     <constraint firstAttribute="height" constant="21" id="jS4-Ot-dHi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -138,7 +139,7 @@
                                     <constraint firstAttribute="height" constant="21" id="4mu-Cx-Gpg"/>
                                     <constraint firstAttribute="width" constant="51" id="I4U-mX-o1U"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -667,7 +668,7 @@
                                 <state key="highlighted" backgroundImage="bigButton_bg"/>
                                 <connections>
                                     <action selector="stop:" destination="z69-nN-cgx" eventType="touchUpInside" id="ShJ-ru-Uys"/>
-                                    <segue destination="viD-XM-RFN" kind="modal" id="yiW-Rj-22O"/>
+                                    <segue destination="viD-XM-RFN" kind="modal" identifier="checkSegue" id="4Jl-sO-yjX"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nN7-4N-XAw" customClass="KYCircularProgress" customModule="TomatoClock" customModuleProvider="target">
@@ -885,6 +886,7 @@
                             <constraint firstAttribute="centerX" secondItem="F1e-W9-v5c" secondAttribute="centerX" id="zsf-ks-KpR"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5MP-7T-87V"/>
                     <connections>
                         <outlet property="DoneButton" destination="pWY-W8-bMM" id="Yoy-2T-Uvw"/>
                         <outlet property="MarkImgView" destination="1fg-Jw-HRM" id="8N4-Jx-VtV"/>
@@ -902,7 +904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zWc-vg-PXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="1189"/>
+            <point key="canvasLocation" x="936" y="1311"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="XuE-Pq-0q6">
@@ -940,7 +942,7 @@
                                     <constraint firstAttribute="width" constant="115" id="bSl-el-zKe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmf-5O-g3W">
@@ -1097,7 +1099,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCm-q9-xBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="-129"/>
+            <point key="canvasLocation" x="1285" y="245"/>
         </scene>
     </scenes>
     <resources>
@@ -1117,12 +1119,7 @@
         <image name="shortrest" width="25" height="25"/>
         <image name="tomato" width="25" height="25"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yiW-Rj-22O"/>
+        <segue reference="4Jl-sO-yjX"/>
     </inferredMetricsTieBreakers>
 </document>

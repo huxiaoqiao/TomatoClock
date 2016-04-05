@@ -63,11 +63,11 @@ class RestViewController: UIViewController {
         
         //指示动画
 
-        let shortRest:AnyObject! = UIImage(named: "shortrest")
-        let shortRest_gray:AnyObject! = UIImage(named: "shortrest_gray")
-        let shortRests = [shortRest,shortRest_gray]
+        //let shortRest:AnyObject! = UIImage(named: "shortrest")
+        //let shortRest_gray:AnyObject! = UIImage(named: "shortrest_gray")
+        //let shortRests = [shortRest,shortRest_gray]
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updateProgress"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(RestViewController.updateProgress), userInfo: nil, repeats: true)
         
         
         if (Int(tomatoTime) % 60 < 10)
@@ -121,13 +121,13 @@ class RestViewController: UIViewController {
         if (timer == nil)
         {
             UIView.setAnimationsEnabled(false)
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("startTomato"), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(RestViewController.startTomato as (RestViewController) -> () -> ()), userInfo: nil, repeats: true)
             progress = Int(tomatoTime)
         }
     }
     
     func startTomato(){
-        println("\(progress)")
+        print("\(progress)")
         progress -= 1
         let normalizedProgress = Double(progress) / tomatoTime
         
@@ -152,15 +152,14 @@ class RestViewController: UIViewController {
             if(isRingOn == true){
                 let urlStr = NSBundle.mainBundle().pathForResource(Conguration.getRingSelectRow().ringType, ofType: "m4r")
                 let url = NSURL(fileURLWithPath: urlStr!)
-                var error:NSError?
-                if(url != nil)
+                if(url.fileURL)
                 {
                     
-                    player = AVAudioPlayer(contentsOfURL: url, error: &error)
+                    player = try! AVAudioPlayer(contentsOfURL: url)
                     
                 }else
                 {
-                    player = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Constellation", ofType: "m4r")!), error: &error)
+                    player = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Constellation", ofType: "m4r")!))
                 }
                 player.play()
                 player.numberOfLoops = 10
@@ -172,8 +171,8 @@ class RestViewController: UIViewController {
         circularProgress.progress = normalizedProgress
         minute = progress / 60
         second = progress % 60
-        var minuteStr = minute >= 10 ? "\(minute)":"0\(minute)"
-        var secondStr = second >= 10 ? "\(second)":"0\(second)"
+        let minuteStr = minute >= 10 ? "\(minute)":"0\(minute)"
+        let secondStr = second >= 10 ? "\(second)":"0\(second)"
         if second >= 0
         {
             countButton.setTitle("\(minuteStr):\(secondStr)", forState: .Normal)
@@ -183,7 +182,7 @@ class RestViewController: UIViewController {
     
     //调用振动
     func vibrate() {
-        vibrateTimer = NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: Selector("startVibrate"), userInfo: nil, repeats: true)
+        vibrateTimer = NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: #selector(RestViewController.startVibrate), userInfo: nil, repeats: true)
         
     }
     
@@ -196,20 +195,20 @@ class RestViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "checkSegue"){
-            var check = segue.destinationViewController as! CheckViewController
+            //let check = segue.destinationViewController as! CheckViewController
            
             self.removeFromParentViewController()
         }
     }
     
     @IBAction func startTomato(sender: UIButton) {
-        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        var tomatoViewController = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let tomatoViewController = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
         let conguration = Conguration.getConguration()
         tomatoViewController.tomatoTime = Double(conguration.workTime * 60)
         var tomatoNum = Conguration.getTomatoNum().tomatoNum
         let restNum = Conguration.getTomatoNum().restNum
-        tomatoNum++
+        tomatoNum += 1
         Conguration.saveTomatoAndRestNum(tomatoNum, restNum: restNum)
         tomatoViewController.taskTitle = self.taskTitleLabel.text
         self.presentViewController(tomatoViewController, animated: true, completion: { () -> Void in
@@ -222,7 +221,7 @@ class RestViewController: UIViewController {
         //休息数减一
         let tomatoNum = Conguration.getTomatoNum().tomatoNum
         var restNum = Conguration.getTomatoNum().restNum
-        restNum--
+        restNum -= 1
         Conguration.saveTomatoAndRestNum(tomatoNum, restNum: restNum)
     }
     

@@ -8,16 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <ShareSDK/ShareSDK.h>
-#import <TencentOpenAPI/QQApiInterface.h>
-#import <TencentOpenAPI/TencentOAuth.h>
-#import "WXApi.h"
-#import "WeiboSDK.h"
+
 #import "DismissingAnimator.h"
 #import "PresentingAnimator.h"
+#import <ShareSDKUI/ShareSDKUI.h>
 
 @interface ShowShareSDK : NSObject
 
-- (void)showShareSDK:(id<ISSContainer>) container content:(id<ISSContent>)content;
+//- (void)showShareSDK:(id<ISSContainer>) container content:(id<ISSContent>)content;
 
 - (id)dismissingAnimator;
 - (id)presentingAnimator;

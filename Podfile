@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'TomatoClock' do
 pod 'pop', '~> 1.0.7'
+#pod 'JSPatch'
 end
 
 target 'TomatoClockTests' do

@@ -32,6 +32,13 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.workTimeSlider.setThumbImage(UIImage(named: "button_slider"), forState: UIControlState.Normal)
+        self.shortRestTImeSlider.setThumbImage(UIImage(named: "button_slider"), forState: UIControlState.Normal)
+        self.longRestTimeSlider.setThumbImage(UIImage(named: "button_slider"), forState: UIControlState.Normal)
+
+
+        
+        
         if (NSUserDefaults.standardUserDefaults().valueForKey("workTime") == nil)
         {
             workTimeSlider.value = 25
@@ -104,7 +111,7 @@ class SettingViewController: UIViewController {
     
     //选择铃声
     @IBAction func selectRingType(sender: AnyObject) {
-        var ringSelectView:RingSelectView = NSBundle.mainBundle().loadNibNamed("RingSelectView", owner: self, options: nil)[0] as! RingSelectView
+        let ringSelectView:RingSelectView = NSBundle.mainBundle().loadNibNamed("RingSelectView", owner: self, options: nil)[0] as! RingSelectView
         ringSelectView.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)
         self.view.addSubview(ringSelectView)
         
