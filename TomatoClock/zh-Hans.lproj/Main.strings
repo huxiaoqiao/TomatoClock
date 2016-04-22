@@ -1,0 +1,96 @@
+
+/* Class = "UILabel"; text = "工作："; ObjectID = "0a3-DG-gFH"; */
+"0a3-DG-gFH.text" = "工作：";
+
+/* Class = "UILabel"; text = "响铃提醒"; ObjectID = "0e9-fd-7rQ"; */
+"0e9-fd-7rQ.text" = "响铃提醒";
+
+/* Class = "UIButton"; normalTitle = "25:00"; ObjectID = "7Gr-fs-ECO"; */
+"7Gr-fs-ECO.normalTitle" = "25:00";
+
+/* Class = "UILabel"; text = "5分钟"; ObjectID = "7QX-nl-zae"; */
+"7QX-nl-zae.text" = "5分钟";
+
+/* Class = "UILabel"; text = "番茄时钟V1.0"; ObjectID = "7SV-Uc-HC1"; */
+"7SV-Uc-HC1.text" = "番茄时钟V1.0";
+
+/* Class = "UILabel"; text = "分钟"; ObjectID = "8pj-sr-Nv4"; */
+"8pj-sr-Nv4.text" = "分钟";
+
+/* Class = "UILabel"; text = "短休息："; ObjectID = "Aqv-jn-SAV"; */
+"Aqv-jn-SAV.text" = "短休息：";
+
+/* Class = "UILabel"; text = "未命名任务"; ObjectID = "Csd-xq-O1h"; */
+"Csd-xq-O1h.text" = "未命名任务";
+
+/* Class = "UILabel"; text = "休息中…"; ObjectID = "E1H-Xh-iq3"; */
+"E1H-Xh-iq3.text" = "休息中…";
+
+/* Class = "UILabel"; text = "未命名任务"; ObjectID = "F1e-W9-v5c"; */
+"F1e-W9-v5c.text" = "未命名任务";
+
+/* Class = "UILabel"; text = "振动提醒"; ObjectID = "For-P8-d70"; */
+"For-P8-d70.text" = "振动提醒";
+
+/* Class = "UITextField"; placeholder = "输入任务名称"; ObjectID = "GJ9-4E-zKd"; */
+"GJ9-4E-zKd.placeholder" = "输入任务名称";
+
+/* Class = "UILabel"; text = "这件事不能再拖了,必须完成！"; ObjectID = "IQC-29-3S7"; */
+"IQC-29-3S7.text" = "这件事不能再拖了,必须完成！";
+
+/* Class = "UILabel"; text = "分钟"; ObjectID = "JND-7f-q4r"; */
+"JND-7f-q4r.text" = "分钟";
+
+/* Class = "UIButton"; normalTitle = "开始休息"; ObjectID = "MEg-9q-ECe"; */
+"MEg-9q-ECe.normalTitle" = "开始休息";
+
+/* Class = "UILabel"; text = "分钟"; ObjectID = "MT8-I6-EGQ"; */
+"MT8-I6-EGQ.text" = "分钟";
+
+/* Class = "UILabel"; text = "未命名任务"; ObjectID = "OoW-AF-Imw"; */
+"OoW-AF-Imw.text" = "未命名任务";
+
+/* Class = "UILabel"; text = "设置"; ObjectID = "QJf-u5-6Ig"; */
+"QJf-u5-6Ig.text" = "设置";
+
+/* Class = "UILabel"; text = "关于"; ObjectID = "S8e-E3-nKF"; */
+"S8e-E3-nKF.text" = "关于";
+
+/* Class = "UILabel"; text = "工作中…"; ObjectID = "SSb-6f-s6Y"; */
+"SSb-6f-s6Y.text" = "工作中…";
+
+/* Class = "UITextView"; text = "      番茄工作法是弗朗西斯科·西里洛于1992年创立的一种相对于GTD更微观的时间管理方法，是一种简单易行的时间管理方法，它的核心思想是集中精力完成工作，排除干扰，合理安排休息时间。番茄时钟可以帮助您实现这种工作方式，一个番茄时间一般为25分钟，计时开始后您需要全身心的投入到工作中，25分钟结束后会进入5分钟的休息计时，每过四个番茄时间后，会有一次20分钟的长休息时间。通过工作和休息的交替循环进行，可以使您更有效率、更健康的工作或学习。"; ObjectID = "TTk-Ig-yFp"; */
+"TTk-Ig-yFp.text" = "      番茄工作法是弗朗西斯科·西里洛于1992年创立的一种相对于GTD更微观的时间管理方法，是一种简单易行的时间管理方法，它的核心思想是集中精力完成工作，排除干扰，合理安排休息时间。番茄时钟可以帮助您实现这种工作方式，一个番茄时间一般为25分钟，计时开始后您需要全身心的投入到工作中，25分钟结束后会进入5分钟的休息计时，每过四个番茄时间后，会有一次20分钟的长休息时间。通过工作和休息的交替循环进行，可以使您更有效率、更健康的工作或学习。";
+
+/* Class = "UILabel"; text = "25分钟"; ObjectID = "awG-SD-4fd"; */
+"awG-SD-4fd.text" = "25分钟";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "dg5-6Q-YsZ"; */
+"dg5-6Q-YsZ.text" = "20";
+
+/* Class = "UILabel"; text = "小叮当"; ObjectID = "dyT-2J-pjF"; */
+"dyT-2J-pjF.text" = "小叮当";
+
+/* Class = "UIButton"; normalTitle = "开始工作"; ObjectID = "grb-GW-oZw"; */
+"grb-GW-oZw.normalTitle" = "开始工作";
+
+/* Class = "UILabel"; text = "20分钟"; ObjectID = "itZ-JB-ply"; */
+"itZ-JB-ply.text" = "20分钟";
+
+/* Class = "UIButton"; normalTitle = "25:00"; ObjectID = "lUa-Km-zUK"; */
+"lUa-Km-zUK.normalTitle" = "25:00";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "nIP-dJ-q67"; */
+"nIP-dJ-q67.text" = "20";
+
+/* Class = "UILabel"; text = "番茄时钟"; ObjectID = "psf-bs-9A5"; */
+"psf-bs-9A5.text" = "番茄时钟";
+
+/* Class = "UILabel"; text = "长休息："; ObjectID = "q1b-Za-bK1"; */
+"q1b-Za-bK1.text" = "长休息：";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "qTn-iD-DUu"; */
+"qTn-iD-DUu.text" = "20";
+
+/* Class = "UILabel"; text = "铃声类型"; ObjectID = "yZg-Rj-eam"; */
+"yZg-Rj-eam.text" = "铃声类型";

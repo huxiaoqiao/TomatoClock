@@ -38,7 +38,7 @@ class RingSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
         
          ringTypeArr = ["Alarm","Apex","Ascending","Bark","Beacon","BellTower","Blues","Boing","Bulletin","ByTheSeaside","Chimes","Circuit","Constellation","Cosmic","Crickets","Crystals","Digital"];
         
-        selectedRow = Conguration.getRingSelectRow().row
+        selectedRow = getRingSelectRow().row
         
     }
     
@@ -106,7 +106,7 @@ class RingSelectView: UIView,UITableViewDataSource,UITableViewDelegate {
         //let cell:UITableViewCell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: selectedRow, inSection: 0))!
         let nameStr = ringTypeArr[selectedRow] as! String
         NSNotificationCenter.defaultCenter().postNotificationName("selectRingType", object: nameStr)
-        Conguration.setRingTypeAndSelectRow(selectedRow, ringType: nameStr)
+        setRingTypeAndSelectRow(selectedRow, ringType: nameStr)
         close()
     }
     

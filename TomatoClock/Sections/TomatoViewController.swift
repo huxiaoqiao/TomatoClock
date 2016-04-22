@@ -33,6 +33,7 @@ class TomatoViewController: UIViewController {
     var vibrateTimer:NSTimer!
     var pathTimer:NSTimer!
     var player:AVAudioPlayer!
+    let myTimer = Timer.sharedInstance
     
     /*********MARK -- Life cirle ************/
     
@@ -42,26 +43,31 @@ class TomatoViewController: UIViewController {
         //初始化UI元素
         self.initUIElements()
         
-        //指示动画
-//        let tomato:AnyObject! = UIImage(named: "tomato")
-//        let tomato_gray:AnyObject! = UIImage(named: "tomato_gray")
-//        let shortRest:AnyObject! = UIImage(named: "shortrest")
-//        let shortRest_gray:AnyObject! = UIImage(named: "shortrest_gray")
-//        let longRest:AnyObject! = UIImage(named: "longrest")
-//        let longRest_gray:AnyObject! = UIImage(named: "longrest_gray")
-//        let tomatos = [tomato,tomato_gray]
-//        let shortRests = [shortRest,shortRest_gray]
-//        let longRests = [longRest,longRest_gray]
+        myTimer.delegate = self
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(TomatoViewController.updateProgress), userInfo: nil, repeats: true)
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
         
-        
-        
+        myTimer.timerWillAction()
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        if event == nil {
+            return
+        }
+        //后台播放音乐
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         UIView.setAnimationsEnabled(true)
+        
+        UIApplication.sharedApplication().resignFirstResponder()
+        
         if(timer != nil)
         {
             timer .invalidate()
@@ -78,7 +84,7 @@ class TomatoViewController: UIViewController {
             pathTimer.invalidate()
             pathTimer = nil
         }
-        if(Conguration.getRingSwitch() == true){
+        if(getRingSwitch() == true){
            //停止播放
             if(player != nil)
             {
@@ -128,43 +134,6 @@ class TomatoViewController: UIViewController {
 
     }
     
-    func initShapeLayer() {
-        shapeLayer = CAShapeLayer()
-        shapeLayer.bounds = self.view.bounds
-        shapeLayer.position = self.view.center
-        shapeLayer.fillColor = UIColor.clearColor().CGColor
-        shapeLayer.strokeColor = UIColor.lightTextColor().CGColor
-        
-        shapeLayer.path = self.getBezierPath1().CGPath
-        
-        sShapeLayer = CAShapeLayer()
-        sShapeLayer.bounds = self.view.bounds
-        sShapeLayer.position = self.view.center
-        sShapeLayer.fillColor = UIColor.clearColor().CGColor
-        shapeLayer.strokeColor = UIColor.lightTextColor().CGColor
-        
-        sShapeLayer.path = self.getBezierPath1().CGPath
-        
-        self.view.layer.addSublayer(sShapeLayer)
-        
-        pathTimer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(TomatoViewController.pathAnimation), userInfo: nil, repeats: true)
-        
-    }
-    var count:Int = 0
-    func pathAnimation() {
-        print("\(count)")
-        count += 1
-       
-        let radiusAnim = CABasicAnimation(keyPath: "path")
-        radiusAnim.removedOnCompletion = true
-        radiusAnim.duration = 2.0
-        radiusAnim.fromValue = self.getBezierPath1().CGPath
-        radiusAnim.toValue = self.getBezierPath2().CGPath
-        sShapeLayer.addAnimation(radiusAnim, forKey: "path" )
-        //        }
-        
-        
-    }
     /**
     更新定时器
     */
@@ -205,35 +174,6 @@ class TomatoViewController: UIViewController {
             countButton.titleLabel?.font = UIFont.systemFontOfSize(30.0)
             countButton.enabled = true
             
-//            revealView.backgroundColor = UIColor.lightTextColor()
-//            
-//            let transition = CircularRevealTransition(layer: revealView.layer, center: revealView.center)
-//            transition.start()
-            
-            
-            let isVibrateOn = Conguration.getVibrateSwitch()
-            if(isVibrateOn == true)
-            {
-                self.vibrate()
-            }
-            
-            let isRingOn = Conguration.getRingSwitch()
-            if(isRingOn == true){
-                let urlStr = NSBundle.mainBundle().pathForResource(Conguration.getRingSelectRow().ringType, ofType: "m4r")
-                let url = NSURL(fileURLWithPath: urlStr!)
-                if(url.fileURL)
-                {
-                    
-                    player = try! AVAudioPlayer(contentsOfURL: url)
-                   
-                }else
-                {
-                    player = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Constellation", ofType: "m4r")!))
-                }
-                player.play()
-                player.numberOfLoops = 10
-            }
-            
             self.view .bringSubviewToFront(countButton)
         }
         circularProgress.progress = normalizedProgress
@@ -247,29 +187,14 @@ class TomatoViewController: UIViewController {
             
         }
     }
-    
-    /**
-    调用手机振动
-    */
-    func vibrate() {
-        vibrateTimer = NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: #selector(TomatoViewController.startVibrate), userInfo: nil, repeats: true)
-        
-    }
-    func startVibrate(){
-        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-    }
+
     /**
     Navigation Segue
     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-//        if(segue.identifier == "checkSegue"){
-//            let check = segue.destinationViewController as! CheckViewController
-//        }
-//        self.removeFromParentViewController()
-        
     }
-    
+
     /**
     开始休息
     :param: sender UIButton
@@ -277,8 +202,8 @@ class TomatoViewController: UIViewController {
     @IBAction func startRest(sender: UIButton) {
         let mainSB = UIStoryboard(name: "Main", bundle: nil)
         let rest = mainSB.instantiateViewControllerWithIdentifier("RestViewController") as! RestViewController
-        let conguration = Conguration.getConguration()
-        let tomatoNum:Int = Conguration.getTomatoNum().tomatoNum
+        let conguration = getConguration()
+        let tomatoNum:Int = getTomatoNum().tomatoNum
         if (tomatoNum != 0 && tomatoNum % 4 == 0)
         {
            rest.tomatoTime = Double(conguration.longrestTime * 60)
@@ -287,9 +212,9 @@ class TomatoViewController: UIViewController {
             rest.tomatoTime = Double(conguration.shortrestTime * 60)
         }
         //休息次数加一
-        var restNum = Conguration.getTomatoNum().restNum
+        var restNum = getTomatoNum().restNum
         restNum += 1
-        Conguration.saveTomatoAndRestNum(tomatoNum, restNum: restNum)
+        saveTomatoAndRestNum(tomatoNum, restNum: restNum)
         
         rest.taskTitle = taskTitle
         self.presentViewController(rest, animated: true, completion: { () -> Void in
@@ -301,40 +226,31 @@ class TomatoViewController: UIViewController {
     @IBAction func stop(sender: AnyObject) {
         
         //番茄数减一
-        var tomatoNum = Conguration.getTomatoNum().tomatoNum
-        let restNum = Conguration.getTomatoNum().restNum
+        var tomatoNum = getTomatoNum().tomatoNum
+        let restNum = getTomatoNum().restNum
         tomatoNum -= 1
-        Conguration.saveTomatoAndRestNum(tomatoNum, restNum: restNum)
-    }
-    
-    /**
-    /获取贝塞尔曲线1
-    :returns: UIBezierPath
-    */
-    func getBezierPath1() -> UIBezierPath{
-        
-        let ovalPath = UIBezierPath(arcCenter: circularProgress.center, radius: circularProgress.frame.size.width / 2 - 5, startAngle: 0, endAngle: 2 * 3.14, clockwise: true)
-        return ovalPath
-    }
-    
-    /**
-    /获取贝塞尔曲线2
-    :returns: UIBezierPath
-    */
-    func getBezierPath2() -> UIBezierPath{
-        
-        let ovalPath = UIBezierPath(arcCenter: circularProgress.center, radius: self.view.frame.size.width / 2, startAngle: 0, endAngle: 2 * 3.14, clockwise: true)
-        return ovalPath
-    }
-    
-    /**
-    /获取贝塞尔曲线3
-    :returns: UIBezierPath
-    */
-    func getBezierPath3() -> UIBezierPath{
-        
-        let ovalPath = UIBezierPath(arcCenter: circularProgress.center, radius: circularProgress.frame.size.width / 2 - 15, startAngle: 0, endAngle: 2 * 3.14, clockwise: true)
-        return ovalPath
+        saveTomatoAndRestNum(tomatoNum, restNum: restNum)
     }
     
 }
+
+
+extension TomatoViewController:TimerDelegate{
+    
+    func timerStateToController(timerWillState: String) {
+        switch timerWillState {
+        case timerState.start:
+            self.countButton.setTitle(formatToDisplayTime(self.myTimer.fireTime), forState: .Normal)
+            //FIX:
+        default:
+            print("error : \(timerWillState)")
+        }
+    }
+    func updateingTime(currentTime: Int) {
+        countButton.setTitle(formatToDisplayTime(currentTime), forState: .Normal)
+    }
+    
+}
+
+
+

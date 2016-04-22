@@ -12,7 +12,22 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(self.view.subviews[1])
+        print(self.view.subviews[3])
+        
+//        for obj:AnyObject in self.view.subviews {
+//            print(obj)
+//        }
+//
+//        let imageView = self.view.subviews[1] as! UIImageView
+//        imageView.image = UIImage(named: "ShareImage")
+//        
+//        let label = self.view.subviews[3] as! UILabel
+//        label.text = "番茄时钟 V1.1.0"
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 

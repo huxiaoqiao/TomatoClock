@@ -52,7 +52,7 @@ class TimeSettingView: UIView {
             longrestTimeLabel.text = "20"
         }else
         {
-            let conguration = Conguration.getConguration()
+            let conguration = getConguration()
             workTimeSwitch.value = Float(conguration.workTime)
             shortrestTimeSwitch.value = Float(conguration.shortrestTime)
             longrestTimeSwitch.value = Float(conguration.longrestTime)
@@ -99,8 +99,8 @@ class TimeSettingView: UIView {
     }
     
     @IBAction func done(sender: UIButton) {
-        Conguration.saveConguration(Int(workTimeSwitch.value), shortrestTime: Int(shortrestTimeSwitch.value), longrestTime: Int(longrestTimeSwitch.value))
-        Conguration.postNotification()
+        saveConguration(Int(workTimeSwitch.value), shortrestTime: Int(shortrestTimeSwitch.value), longrestTime: Int(longrestTimeSwitch.value))
+        postNotification()
         close()
     }
     

@@ -40,7 +40,7 @@ class RestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 175 / 255.0, blue: 108 / 255.0, alpha: 1.0)
         taskTitleLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("TaskTitle") as? String
         
         stopButton.layer.cornerRadius = 30 * SCREEN_WIDTH / 320.0
@@ -142,15 +142,15 @@ class RestViewController: UIViewController {
             countButton.enabled = true
             //indicatorImgView.stopAnimating()
             
-            let isVibrateOn = Conguration.getVibrateSwitch()
+            let isVibrateOn = getVibrateSwitch()
             if(isVibrateOn == true)
             {
                 self.vibrate()
             }
             
-            let isRingOn = Conguration.getRingSwitch()
+            let isRingOn = getRingSwitch()
             if(isRingOn == true){
-                let urlStr = NSBundle.mainBundle().pathForResource(Conguration.getRingSelectRow().ringType, ofType: "m4r")
+                let urlStr = NSBundle.mainBundle().pathForResource(getRingSelectRow().ringType, ofType: "m4r")
                 let url = NSURL(fileURLWithPath: urlStr!)
                 if(url.fileURL)
                 {
@@ -204,12 +204,12 @@ class RestViewController: UIViewController {
     @IBAction func startTomato(sender: UIButton) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let tomatoViewController = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
-        let conguration = Conguration.getConguration()
+        let conguration = getConguration()
         tomatoViewController.tomatoTime = Double(conguration.workTime * 60)
-        var tomatoNum = Conguration.getTomatoNum().tomatoNum
-        let restNum = Conguration.getTomatoNum().restNum
+        var tomatoNum = getTomatoNum().tomatoNum
+        let restNum = getTomatoNum().restNum
         tomatoNum += 1
-        Conguration.saveTomatoAndRestNum(tomatoNum, restNum: restNum)
+        saveTomatoAndRestNum(tomatoNum, restNum: restNum)
         tomatoViewController.taskTitle = self.taskTitleLabel.text
         self.presentViewController(tomatoViewController, animated: true, completion: { () -> Void in
             self.removeFromParentViewController()
@@ -219,10 +219,10 @@ class RestViewController: UIViewController {
     //停止番茄钟
     @IBAction func stop(sender: AnyObject) {
         //休息数减一
-        let tomatoNum = Conguration.getTomatoNum().tomatoNum
-        var restNum = Conguration.getTomatoNum().restNum
+        let tomatoNum = getTomatoNum().tomatoNum
+        var restNum = getTomatoNum().restNum
         restNum -= 1
-        Conguration.saveTomatoAndRestNum(tomatoNum, restNum: restNum)
+        saveTomatoAndRestNum(tomatoNum, restNum: restNum)
     }
     
 

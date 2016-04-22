@@ -53,9 +53,9 @@ class CheckViewController: UIViewController {
         let tomato_break = UIImage(named: "tomato_break");
         
         checkUndoneTitles = ["都已经开始了,离完成还远吗？","坚持一下，胜利就在前方！"]
-        checkDoneTitles = ["我是超人，手指一戳，任务完成！","好开心，经过\(Conguration.getTomatoNum().tomatoNum)个番茄的奋战和\(Conguration.getTomatoNum().restNum)次休息，终于完成！"]
+        checkDoneTitles = ["我是超人，手指一戳，任务完成！","好开心，经过\(getTomatoNum().tomatoNum)个番茄的奋战和\(getTomatoNum().restNum)次休息，终于完成！"]
         
-       
+        self.view.backgroundColor = UIColor.init(colorLiteralRed: 27 / 255.0, green: 161 / 255.0, blue: 226 / 255.0, alpha: 1.0)
 }
 
     override func didReceiveMemoryWarning() {
@@ -99,8 +99,8 @@ class CheckViewController: UIViewController {
             
             }) { (finished:Bool) -> Void in
                 //标题
-                let tomatoNum:Int = Conguration.getTomatoNum().tomatoNum
-                let restNum:Int = Conguration.getTomatoNum().restNum
+                let tomatoNum:Int = getTomatoNum().tomatoNum
+                let restNum:Int = getTomatoNum().restNum
                 if (tomatoNum >= 1 &&  restNum >= 1)
                 {
                     self.remarkLabel.text = self.checkDoneTitles[1]
@@ -152,8 +152,8 @@ class CheckViewController: UIViewController {
             
             }) { (finished:Bool) -> Void in
                 //标题
-                let tomatoNum:Int = Conguration.getTomatoNum().tomatoNum
-                let restNum:Int = Conguration.getTomatoNum().restNum
+                let tomatoNum:Int = getTomatoNum().tomatoNum
+                let restNum:Int = getTomatoNum().restNum
                 if (tomatoNum >= 1 &&  restNum >= 1)
                 {
                     self.remarkLabel.text = self.checkUndoneTitles[1]
@@ -192,13 +192,13 @@ class CheckViewController: UIViewController {
             //开始休息
             let storyBoard = UIStoryboard(name: "Main", bundle: nil);
             let rest = storyBoard.instantiateViewControllerWithIdentifier("RestViewController") as! RestViewController
-            let conguration = Conguration.getConguration()
+            let conguration = getConguration()
             rest.tomatoTime = Double(conguration.shortrestTime * 60)
             rest.taskTitle = taskTitleLabel.text
             self.presentViewController(rest, animated: true, completion: { () -> Void in
                 self.removeFromParentViewController()
                 
-                Conguration.saveTomatoAndRestNum(0, restNum: 1)
+                saveTomatoAndRestNum(0, restNum: 1)
                 
             })
         }else{
@@ -214,12 +214,12 @@ class CheckViewController: UIViewController {
             //开始工作
             let storyBoard = UIStoryboard(name: "Main", bundle: nil);
             let tomato = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
-            let conguration = Conguration.getConguration()
+            let conguration = getConguration()
             tomato.tomatoTime = Double(conguration.workTime * 60)
             tomato.taskTitle = taskTitleLabel.text
             self.presentViewController(tomato, animated: true, completion: { () -> Void in
                 self.removeFromParentViewController()
-                Conguration.saveTomatoAndRestNum(1, restNum: 0)
+                saveTomatoAndRestNum(1, restNum: 0)
 
             })
             

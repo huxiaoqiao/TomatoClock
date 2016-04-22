@@ -23,9 +23,8 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
     @IBOutlet weak var shortrestLabel: UILabel!
     @IBOutlet weak var longrestLabel: UILabel!
     
+    
     var timeSettingView:TimeSettingView!
-    let SCREEN_WIDTH:CGFloat = UIScreen.mainScreen().bounds.size.width
-    let SCREEN_HEIGHT:CGFloat = UIScreen.mainScreen().bounds.size.height
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +38,7 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
         let editTextOffImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
         editTextImgView.image = editTextOffImg;
         
-        let conguration = Conguration.getConguration()
+        let conguration = getConguration()
         if (NSUserDefaults.standardUserDefaults().valueForKey("workTime") != nil)
         {
             tomatoLabel.text = "\(conguration.workTime)分钟"
@@ -47,12 +46,12 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
             longrestLabel.text = "\(conguration.longrestTime)分钟"
         }
         NSNotificationCenter.defaultCenter().addObserverForName("congurationChanged", object: nil, queue: nil) { (note:NSNotification!) -> Void in
-            let conguration = Conguration.getConguration()
+            let conguration = getConguration()
             self.tomatoLabel.text = "\(conguration.workTime)分钟"
             self.shortrestLabel.text = "\(conguration.shortrestTime)分钟"
             self.longrestLabel.text = "\(conguration.longrestTime)分钟"
         }
-        
+          self.view.backgroundColor = UIColor.init(colorLiteralRed: 27 / 255.0, green: 161 / 255.0, blue: 226 / 255.0, alpha: 1.0)
         
     }
 
@@ -101,19 +100,6 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
     
     func showSettingView(){
         
-//        timeSettingView = NSBundle.mainBundle().loadNibNamed("TimeSettingView", owner: self, options: nil)[0] as! TimeSettingView
-//        timeSettingView.center = CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2)
-//        
-//       self.view.addSubview(timeSettingView)
-//        
-//        timeSettingView.alpha = 0
-//        timeSettingView.transform = CGAffineTransformMakeScale(0.01, 0.01)
-//        
-//        UIView.animateWithDuration(0.3, animations: { () -> Void in
-//            self.timeSettingView.alpha = 1
-//            self.timeSettingView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-//        })
-        
         let timeSetModalVC:TimeSetModalViewController = TimeSetModalViewController()
         timeSetModalVC.transitioningDelegate = self
         timeSetModalVC.modalPresentationStyle = UIModalPresentationStyle.Custom
@@ -130,15 +116,15 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
         {
             
          let tomato:TomatoViewController! = segue.destinationViewController as! TomatoViewController
-            let conguration = Conguration.getConguration()
+            let conguration = getConguration()
            tomato.tomatoTime = Double(conguration.workTime * 60)
-            Conguration.saveTomatoAndRestNum(1, restNum: 0)
+            saveTomatoAndRestNum(1, restNum: 0)
             
             if (taskTextField.text == "")
             {
-               Conguration.saveTaskTitle("未命名任务")
+               saveTaskTitle("未命名任务")
             }else{
-               Conguration.saveTaskTitle(taskTextField.text!)
+               saveTaskTitle(taskTextField.text!)
             }
         }
     }

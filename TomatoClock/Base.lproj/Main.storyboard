@@ -644,7 +644,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpx-CX-W0k">
-                                <rect key="frame" x="20" y="40" width="280" height="280"/>
+                                <rect key="frame" x="20" y="80" width="280" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="C6a-cI-eT0"/>
@@ -672,7 +672,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nN7-4N-XAw" customClass="KYCircularProgress" customModule="TomatoClock" customModuleProvider="target">
-                                <rect key="frame" x="20" y="40" width="280" height="280"/>
+                                <rect key="frame" x="20" y="80" width="280" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="Rit-HM-GMQ"/>
@@ -680,12 +680,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gr-fs-ECO">
-                                <rect key="frame" x="35" y="55" width="250" height="250"/>
+                                <rect key="frame" x="35" y="95" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="13i-KR-Ipo"/>
                                     <constraint firstAttribute="height" constant="250" id="efC-dJ-Dei"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
                                 <state key="normal" title="25:00">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -696,15 +696,15 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-UM-nbc" userLabel="TtrickView">
-                                <rect key="frame" x="25" y="45" width="270" height="270"/>
+                                <rect key="frame" x="25" y="85" width="270" height="270"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作中…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-6f-s6Y">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-6f-s6Y">
                                         <rect key="frame" x="43" y="60" width="184" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="lB7-Pc-3be"/>
                                             <constraint firstAttribute="width" constant="184" id="wsK-1B-z95"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -719,7 +719,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未命名任务" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoW-AF-Imw">
-                                <rect key="frame" x="0.0" y="350" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="390" width="320" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="35A-Eg-6Ga"/>
                                 </constraints>
@@ -738,13 +738,13 @@
                             <constraint firstAttribute="centerX" secondItem="cCf-gy-QwU" secondAttribute="centerX" id="K6D-tL-X4B"/>
                             <constraint firstAttribute="centerX" secondItem="aEf-UM-nbc" secondAttribute="centerX" id="L1D-78-q2k"/>
                             <constraint firstAttribute="centerX" secondItem="Qpx-CX-W0k" secondAttribute="centerX" id="Od4-gQ-nva"/>
-                            <constraint firstItem="7Gr-fs-ECO" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="35" id="T9k-NV-Eyl"/>
+                            <constraint firstItem="7Gr-fs-ECO" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="75" id="T9k-NV-Eyl"/>
                             <constraint firstAttribute="centerX" secondItem="7Gr-fs-ECO" secondAttribute="centerX" id="WhY-yM-Mn3"/>
-                            <constraint firstItem="nN7-4N-XAw" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="20" id="aOB-TX-ymj"/>
+                            <constraint firstItem="nN7-4N-XAw" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="60" id="aOB-TX-ymj"/>
                             <constraint firstAttribute="centerX" secondItem="nN7-4N-XAw" secondAttribute="centerX" id="dH8-2q-wAj"/>
-                            <constraint firstItem="Qpx-CX-W0k" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="20" id="e4A-kK-giL"/>
+                            <constraint firstItem="Qpx-CX-W0k" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="60" id="e4A-kK-giL"/>
                             <constraint firstAttribute="width" secondItem="lBD-yJ-ssL" secondAttribute="height" multiplier="16:3" id="hu5-pN-SlT"/>
-                            <constraint firstItem="aEf-UM-nbc" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="25" id="mcm-2b-l6T"/>
+                            <constraint firstItem="aEf-UM-nbc" firstAttribute="top" secondItem="s7O-Cb-bEc" secondAttribute="bottom" constant="65" id="mcm-2b-l6T"/>
                             <constraint firstItem="lBD-yJ-ssL" firstAttribute="centerX" secondItem="cCf-gy-QwU" secondAttribute="centerX" id="wSp-kX-Bey"/>
                             <constraint firstItem="OoW-AF-Imw" firstAttribute="top" secondItem="nN7-4N-XAw" secondAttribute="bottom" constant="30" id="wW8-kS-LMs"/>
                         </constraints>
@@ -935,16 +935,6 @@
                                     <constraint firstAttribute="width" constant="76" id="eN8-6q-HZa"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番茄时钟V1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SV-Uc-HC1">
-                                <rect key="frame" x="103" y="164" width="115" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="UtM-3m-EBG"/>
-                                    <constraint firstAttribute="width" constant="115" id="bSl-el-zKe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmf-5O-g3W">
                                 <rect key="frame" x="16" y="20" width="32" height="32"/>
                                 <constraints>
@@ -959,6 +949,16 @@
                                     <action selector="back:" destination="qDN-e9-MHF" eventType="touchUpInside" id="iCB-p1-HXq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番茄时钟V1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SV-Uc-HC1">
+                                <rect key="frame" x="103" y="164" width="115" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="UtM-3m-EBG"/>
+                                    <constraint firstAttribute="width" constant="115" id="bSl-el-zKe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

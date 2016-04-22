@@ -49,7 +49,7 @@ class SettingViewController: UIViewController {
             longRestTimeLabel.text = "20"
         }else
         {
-            let conguration = Conguration.getConguration()
+            let conguration = getConguration()
             workTimeSlider.value = Float(conguration.workTime)
             shortRestTImeSlider.value = Float(conguration.shortrestTime)
             longRestTimeSlider.value = Float(conguration.longrestTime)
@@ -58,8 +58,8 @@ class SettingViewController: UIViewController {
             longRestTimeLabel.text = "\(conguration.longrestTime)"
         }
         
-        vibrateSwitch.setOn(Conguration.getVibrateSwitch(), animated: false)
-        ringTypeLabel.text = Conguration.getRingSelectRow().ringType
+        vibrateSwitch.setOn(getVibrateSwitch(), animated: false)
+        ringTypeLabel.text = getRingSelectRow().ringType
         
         NSNotificationCenter.defaultCenter().addObserverForName("selectRingType", object: nil, queue: nil) { (note:NSNotification!) -> Void in
             let ringType:String = note.object as! String
@@ -74,8 +74,8 @@ class SettingViewController: UIViewController {
     
     @IBAction func back(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        Conguration.saveConguration(Int(workTimeSlider.value), shortrestTime: Int(shortRestTImeSlider.value), longrestTime: Int(longRestTimeSlider.value))
-        Conguration.postNotification()
+        saveConguration(Int(workTimeSlider.value), shortrestTime: Int(shortRestTImeSlider.value), longrestTime: Int(longRestTimeSlider.value))
+        postNotification()
     }
     
     @IBAction func workTimeChanged(sender: UISlider) {
@@ -128,9 +128,9 @@ class SettingViewController: UIViewController {
     //响铃开关
     @IBAction func ringSwitchChanged(sender:UISwitch){
         if(sender.on == true){
-            Conguration.setRingSwitch(true)
+            setRingSwitch(true)
         }else{
-            Conguration.setRingSwitch(false)
+            setRingSwitch(false)
         }
     }
      //振动开关
@@ -138,10 +138,10 @@ class SettingViewController: UIViewController {
         if(sender.on == true)
         {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            Conguration.setVibrateSwitch(true)
+            setVibrateSwitch(true)
         }else
         {
-            Conguration.setVibrateSwitch(false)
+            setVibrateSwitch(false)
         }
     }
     
