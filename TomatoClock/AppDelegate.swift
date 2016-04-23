@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,11 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         
         
-        //保证程序进入后台后仍运行定时器
-        let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayback)
-        try! session.setActive(true)
-        
         //注册ShareSDK
         ShareSDKTool.registerApp(ShareSDKAppKey)
         
@@ -51,26 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
-        
-        let app:UIApplication = UIApplication.sharedApplication()
-        
-        var bgTask:UIBackgroundTaskIdentifier?
-        
-        bgTask = app.beginBackgroundTaskWithExpirationHandler({ () -> Void in
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                if(bgTask != UIBackgroundTaskInvalid){
-                    bgTask = UIBackgroundTaskInvalid
-                }
-            })
-        })
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            
-            if(bgTask != UIBackgroundTaskInvalid){
-                bgTask = UIBackgroundTaskInvalid
-            }
-        })
         
     }
     

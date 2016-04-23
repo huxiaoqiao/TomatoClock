@@ -107,7 +107,7 @@ class RestViewController: UIViewController {
         
     }
     
-    func updateProgress(){
+    func updateProgress(currentTime:Int){
         progress += 1
         let normalizedProgress = Double(progress) / 5.0
         circularProgress.progress = normalizedProgress

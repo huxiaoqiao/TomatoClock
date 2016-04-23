@@ -37,8 +37,14 @@ func setNotification(body:String,timeToNotification:Double,soundName:String,cate
 func formatToDisplayTime(currentTime:Int) -> String{
     let min = currentTime / 60
     let second = currentTime % 60
-    let time = String(format: "%02d:%02d", argumentrs:[min,second])
+    let minuteStr = min >= 10 ? "\(min)":"0\(min)"
+    
+    let secondStr = second >= 10 ? "\(second)":"0\(second)"
+    
+    let time = "\(minuteStr):\(secondStr)"
+    
     return time
+    
 }
 
 

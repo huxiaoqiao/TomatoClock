@@ -11,9 +11,7 @@ import AVFoundation
 
 class TomatoViewController: UIViewController {
     
-    
     var taskTitle:String?
-    let SCREEN_WIDTH:CGFloat = UIScreen.mainScreen().bounds.size.width
     
     @IBOutlet weak var stopButton: UIButton!                 //停止按钮
     @IBOutlet weak var circularProgress: KYCircularProgress! //圆形进度条
@@ -25,14 +23,8 @@ class TomatoViewController: UIViewController {
     
     var tomatoTime:Double!
     var progress: Int = 0
-    var minute:Int!
-    var second:Int!
     var shapeLayer:CAShapeLayer!
-    var sShapeLayer:CAShapeLayer!
     var timer:NSTimer!
-    var vibrateTimer:NSTimer!
-    var pathTimer:NSTimer!
-    var player:AVAudioPlayer!
     let myTimer = Timer.sharedInstance
     
     /*********MARK -- Life cirle ************/
@@ -42,13 +34,15 @@ class TomatoViewController: UIViewController {
         
         //初始化UI元素
         self.initUIElements()
-        
+        myTimer.fireTime = Int(tomatoTime)
         myTimer.delegate = self
         
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         self.becomeFirstResponder()
-        
+        UIView.setAnimationsEnabled(false)
+        //开始计时
         myTimer.timerWillAction()
+        
     }
     
     override func canBecomeFirstResponder() -> Bool {
@@ -68,31 +62,6 @@ class TomatoViewController: UIViewController {
         
         UIApplication.sharedApplication().resignFirstResponder()
         
-        if(timer != nil)
-        {
-            timer .invalidate()
-            timer = nil
-        }
-        
-        if(vibrateTimer != nil)
-        {
-            vibrateTimer.invalidate()
-            vibrateTimer = nil
-        }
-        
-        if(pathTimer != nil){
-            pathTimer.invalidate()
-            pathTimer = nil
-        }
-        if(getRingSwitch() == true){
-           //停止播放
-            if(player != nil)
-            {
-                player.stop()
-                player = nil
-            }
-        }
-
     }
     
     /*********MARK -- Life cirle End************/
@@ -108,6 +77,7 @@ class TomatoViewController: UIViewController {
         
         circularProgress.colors = [0xffffff,0xffffff]
         circularProgress.lineWidth = 10
+        circularProgress.progress = 1.0
         self.view.addSubview(circularProgress)
         
         trickView.layer.borderColor = UIColor(white: 255, alpha: 0.2).CGColor
@@ -123,71 +93,27 @@ class TomatoViewController: UIViewController {
         //revealView
         revealView.layer.cornerRadius = 140
         
-        if (Int(tomatoTime) % 60 < 10)
-        {
-            countButton.setTitle("\(Int(tomatoTime) / 60):0\(Int(tomatoTime) % 60)", forState: .Normal)
-            
-        }else
-        {
-            countButton.setTitle("\(Int(tomatoTime) / 60):\(Int(tomatoTime) % 60)", forState: .Normal)
-        }
-
+        countButton.setTitle(formatToDisplayTime(Int(tomatoTime)), forState: .Normal)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(TomatoViewController.updateProgress), userInfo: nil, repeats: true)
     }
     
     /**
-    更新定时器
+    更新进度条
     */
     func updateProgress(){
         progress += 1
         let normalizedProgress = Double(progress) / 5.0
         circularProgress.progress = normalizedProgress
-        
+
         if (circularProgress.progress > 1.0)
         {
             timer.invalidate()
             timer = nil
             circularProgress.progress = 1.0
         }
-        if (timer == nil)
-        {
-            UIView.setAnimationsEnabled(false)
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TomatoViewController.startTomato), userInfo: nil, repeats: true)
-            progress = Int(tomatoTime)
-        }
+        
     }
     
-    /**
-    开始计时
-    */
-    func startTomato(){
-        print("\(progress)")
-        progress -= 1
-        let normalizedProgress = Double(progress) / tomatoTime
-        
-        if (circularProgress.progress == 0)
-        {
-            timer.invalidate()
-            timer = nil
-            UIView.setAnimationsEnabled(true)
-            tomatoStateLabel.hidden = true
-            countButton.setTitle("开始休息", forState: .Normal)
-            countButton.titleLabel?.font = UIFont.systemFontOfSize(30.0)
-            countButton.enabled = true
-            
-            self.view .bringSubviewToFront(countButton)
-        }
-        circularProgress.progress = normalizedProgress
-        minute = progress / 60
-        second = progress % 60
-        let minuteStr = minute >= 10 ? "\(minute)":"0\(minute)"
-        let secondStr = second >= 10 ? "\(second)":"0\(second)"
-        if second >= 0
-        {
-            countButton.setTitle("\(minuteStr):\(secondStr)", forState: .Normal)
-            
-        }
-    }
-
     /**
     Navigation Segue
     */
@@ -200,6 +126,7 @@ class TomatoViewController: UIViewController {
     :param: sender UIButton
     */
     @IBAction func startRest(sender: UIButton) {
+        
         let mainSB = UIStoryboard(name: "Main", bundle: nil)
         let rest = mainSB.instantiateViewControllerWithIdentifier("RestViewController") as! RestViewController
         let conguration = getConguration()
@@ -247,7 +174,24 @@ extension TomatoViewController:TimerDelegate{
         }
     }
     func updateingTime(currentTime: Int) {
-        countButton.setTitle(formatToDisplayTime(currentTime), forState: .Normal)
+        if UIView.areAnimationsEnabled() == true {
+            UIView.setAnimationsEnabled(false)
+        }
+        if currentTime == 0 {
+            UIView.setAnimationsEnabled(true)
+            tomatoStateLabel.hidden = true
+            countButton.setTitle("开始休息", forState: .Normal)
+            countButton.titleLabel?.font = UIFont.systemFontOfSize(36)
+            countButton.enabled = true
+            self.view .bringSubviewToFront(countButton)
+            circularProgress.progress = 0
+        }else{
+            print(currentTime)
+            countButton.setTitle(formatToDisplayTime(currentTime), forState: .Normal)
+            let normalizedProgress = Double(currentTime - 1 ) / tomatoTime
+            circularProgress.progress = normalizedProgress
+            
+        }
     }
     
 }

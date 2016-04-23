@@ -33,6 +33,7 @@
 		1BE6B1CC1CA9FC3C006E88FF /* ShareSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6B1CB1CA9FC3C006E88FF /* ShareSDKTool.m */; };
 		1BED7D661CA8C69D0046F56C /* JSPatchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BED7D651CA8C69D0046F56C /* JSPatchTool.m */; };
 		22B4AD5592894A9EEF4821A6 /* Pods_TomatoClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F3E3DF57096670AA3A1BC /* Pods_TomatoClock.framework */; };
+		33CAAB141CCBCF1A0021A4DA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33CAAB131CCBCF1A0021A4DA /* AVFoundation.framework */; };
 		442CA9261B05F7E7003B73B3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9251B05F7E7003B73B3 /* ModalViewController.swift */; };
 		442CA9301B05FBF5003B73B3 /* TimeSetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA92F1B05FBF5003B73B3 /* TimeSetModalViewController.swift */; };
 		442CA9331B05FC2F003B73B3 /* RingSetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9311B05FC2F003B73B3 /* RingSetModalViewController.swift */; };
@@ -142,6 +143,7 @@
 		1BE6B1CB1CA9FC3C006E88FF /* ShareSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSDKTool.m; sourceTree = "<group>"; };
 		1BED7D641CA8C69D0046F56C /* JSPatchTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPatchTool.h; sourceTree = "<group>"; };
 		1BED7D651CA8C69D0046F56C /* JSPatchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPatchTool.m; sourceTree = "<group>"; };
+		33CAAB131CCBCF1A0021A4DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		442CA9251B05F7E7003B73B3 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		442CA92F1B05FBF5003B73B3 /* TimeSetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSetModalViewController.swift; sourceTree = "<group>"; };
 		442CA9311B05FC2F003B73B3 /* RingSetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingSetModalViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33CAAB141CCBCF1A0021A4DA /* AVFoundation.framework in Frameworks */,
 				1B0DD4BC1CAA63AA008A52A7 /* AdSupport.framework in Frameworks */,
 				1B0DD4BA1CAA63A0008A52A7 /* CoreText.framework in Frameworks */,
 				1BE6B1C91CA9358F006E88FF /* MessageUI.framework in Frameworks */,
@@ -368,6 +371,7 @@
 		44A7CAFD1AB82D2D0008E587 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33CAAB131CCBCF1A0021A4DA /* AVFoundation.framework */,
 				1B0DD4BB1CAA63AA008A52A7 /* AdSupport.framework */,
 				1B0DD4B91CAA639F008A52A7 /* CoreText.framework */,
 				1BE6B1C81CA9358F006E88FF /* MessageUI.framework */,

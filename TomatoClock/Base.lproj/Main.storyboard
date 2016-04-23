@@ -671,6 +671,22 @@
                                     <segue destination="viD-XM-RFN" kind="modal" identifier="checkSegue" id="4Jl-sO-yjX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gr-fs-ECO">
+                                <rect key="frame" x="35" y="95" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="13i-KR-Ipo"/>
+                                    <constraint firstAttribute="height" constant="250" id="efC-dJ-Dei"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="80"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="bigButton_bg"/>
+                                <connections>
+                                    <action selector="startRest:" destination="z69-nN-cgx" eventType="touchUpInside" id="EGh-yG-mf9"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nN7-4N-XAw" customClass="KYCircularProgress" customModule="TomatoClock" customModuleProvider="target">
                                 <rect key="frame" x="20" y="80" width="280" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -679,22 +695,6 @@
                                     <constraint firstAttribute="width" constant="280" id="U0t-SU-1jU"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gr-fs-ECO">
-                                <rect key="frame" x="35" y="95" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="13i-KR-Ipo"/>
-                                    <constraint firstAttribute="height" constant="250" id="efC-dJ-Dei"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
-                                <state key="normal" title="25:00">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="bigButton_bg"/>
-                                <connections>
-                                    <action selector="startRest:" destination="z69-nN-cgx" eventType="touchUpInside" id="jz7-gr-R7a"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-UM-nbc" userLabel="TtrickView">
                                 <rect key="frame" x="25" y="85" width="270" height="270"/>
                                 <subviews>
