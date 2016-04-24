@@ -48,7 +48,7 @@ func formatToDisplayTime(currentTime:Int) -> String{
 }
 
 
-func saveConguration(workTime:Int,shortrestTime:Int,longrestTime:Int){
+func saveTimeSetting(workTime:Int,shortrestTime:Int,longrestTime:Int){
     let userDefaults = NSUserDefaults.standardUserDefaults()
     userDefaults.setInteger(workTime, forKey: "workTime")
     userDefaults.setInteger(shortrestTime, forKey: "shortrestTime")
@@ -56,7 +56,7 @@ func saveConguration(workTime:Int,shortrestTime:Int,longrestTime:Int){
     
 }
 
-func getConguration() -> (workTime:Int,shortrestTime:Int,longrestTime:Int){
+func getTimeSetting() -> (workTime:Int,shortrestTime:Int,longrestTime:Int){
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let workTime = userDefaults.integerForKey("workTime")
     let shortrestTime = userDefaults.integerForKey("shortrestTime")

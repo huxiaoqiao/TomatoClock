@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class RestViewController: UIViewController {
 
@@ -25,22 +24,50 @@ class RestViewController: UIViewController {
     @IBOutlet weak var tomatoStateLabel: UILabel!
     
     @IBOutlet weak var countButton: UIButton!
-    
-    @IBOutlet var indicatorImgViews: [UIImageView]!
    
     @IBOutlet weak var firstCenterX: NSLayoutConstraint!
     
     var tomatoTime:Double!
     var progress: Int = 0
     var timer:NSTimer!
-    var minute:Int!
-    var second:Int!
-    var vibrateTimer:NSTimer!
-    var player:AVAudioPlayer!
+    let myTimer = Timer.sharedInstance
+    var ripplesLayer:DWRipplesLayer = DWRipplesLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //初始化UI
+        self.initUIElements()
+        myTimer.restFireTime = Int(self.tomatoTime)
+        myTimer.timerWillState = timerState.rest
+        myTimer.delegate = self
+        
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
+        
+        //开始计时
+        myTimer.timerWillAction()
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIView.setAnimationsEnabled(true)
+        if(timer != nil)
+        {
+            timer .invalidate()
+            timer = nil
+        }
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
+    func initUIElements(){
         self.view.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 175 / 255.0, blue: 108 / 255.0, alpha: 1.0)
+        
         taskTitleLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("TaskTitle") as? String
         
         stopButton.layer.cornerRadius = 30 * SCREEN_WIDTH / 320.0
@@ -61,53 +88,28 @@ class RestViewController: UIViewController {
         countButton.layer.borderWidth = 0.5
         countButton.layer.borderColor = UIColor.clearColor().CGColor
         
-        //指示动画
-
-        //let shortRest:AnyObject! = UIImage(named: "shortrest")
-        //let shortRest_gray:AnyObject! = UIImage(named: "shortrest_gray")
-        //let shortRests = [shortRest,shortRest_gray]
+        let backView:UIView = UIView()
+        backView.bounds = CGRectMake(0, 0, 270, 270)
+        backView.layer.cornerRadius = 135
+        backView.center = trickView.center
+        backView.backgroundColor = self.view.backgroundColor
+        self.view.insertSubview(backView, belowSubview: trickView)
         
+        //rippleLayer
+        self.view.layer.insertSublayer(self.ripplesLayer, below: backView.layer)
+        self.ripplesLayer.position = trickView.center
+        self.ripplesLayer.radius = 280
+        self.ripplesLayer.animationDuration = 4.0
+        
+        self.view.bringSubviewToFront(countButton)
+        
+        countButton.setTitle(formatToDisplayTime(Int(tomatoTime)), forState: .Normal)
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(RestViewController.updateProgress), userInfo: nil, repeats: true)
         
         
-        if (Int(tomatoTime) % 60 < 10)
-        {
-            countButton.setTitle("\(Int(tomatoTime) / 60):0\(Int(tomatoTime) % 60)", forState: .Normal)
-            
-        }else
-        {
-            countButton.setTitle("\(Int(tomatoTime) / 60):\(Int(tomatoTime) % 60)", forState: .Normal)
-        }
-        
-        // Do any additional setup after loading the view.
     }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIView.setAnimationsEnabled(true)
-        if(timer != nil)
-        {
-            timer .invalidate()
-            timer = nil
-        }
-        if(vibrateTimer != nil)
-        {
-            vibrateTimer.invalidate()
-            vibrateTimer = nil
-        }
-        if(player != nil)
-        {
-            player.stop()
-            player = nil
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
-    
-    func updateProgress(currentTime:Int){
+    //更新进度条
+    func updateProgress(){
         progress += 1
         let normalizedProgress = Double(progress) / 5.0
         circularProgress.progress = normalizedProgress
@@ -118,77 +120,8 @@ class RestViewController: UIViewController {
             timer = nil
             circularProgress.progress = 1.0
         }
-        if (timer == nil)
-        {
-            UIView.setAnimationsEnabled(false)
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(RestViewController.startTomato as (RestViewController) -> () -> ()), userInfo: nil, repeats: true)
-            progress = Int(tomatoTime)
-        }
     }
     
-    func startTomato(){
-        print("\(progress)")
-        progress -= 1
-        let normalizedProgress = Double(progress) / tomatoTime
-        
-        if (circularProgress.progress == 0)
-        {
-            timer.invalidate()
-            timer = nil
-            UIView.setAnimationsEnabled(true)
-            tomatoStateLabel.hidden = true
-            countButton.setTitle("开始工作", forState: .Normal)
-            countButton.titleLabel?.font = UIFont.systemFontOfSize(30.0)
-            countButton.enabled = true
-            //indicatorImgView.stopAnimating()
-            
-            let isVibrateOn = getVibrateSwitch()
-            if(isVibrateOn == true)
-            {
-                self.vibrate()
-            }
-            
-            let isRingOn = getRingSwitch()
-            if(isRingOn == true){
-                let urlStr = NSBundle.mainBundle().pathForResource(getRingSelectRow().ringType, ofType: "m4r")
-                let url = NSURL(fileURLWithPath: urlStr!)
-                if(url.fileURL)
-                {
-                    
-                    player = try! AVAudioPlayer(contentsOfURL: url)
-                    
-                }else
-                {
-                    player = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Constellation", ofType: "m4r")!))
-                }
-                player.play()
-                player.numberOfLoops = 10
-            }
-            
-            
-            self.view .bringSubviewToFront(countButton)
-        }
-        circularProgress.progress = normalizedProgress
-        minute = progress / 60
-        second = progress % 60
-        let minuteStr = minute >= 10 ? "\(minute)":"0\(minute)"
-        let secondStr = second >= 10 ? "\(second)":"0\(second)"
-        if second >= 0
-        {
-            countButton.setTitle("\(minuteStr):\(secondStr)", forState: .Normal)
-        }
-    }
-    
-    
-    //调用振动
-    func vibrate() {
-        vibrateTimer = NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: #selector(RestViewController.startVibrate), userInfo: nil, repeats: true)
-        
-    }
-    
-    func startVibrate(){
-        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-    }
     
     // MARK: - Navigation
     
@@ -200,12 +133,13 @@ class RestViewController: UIViewController {
             self.removeFromParentViewController()
         }
     }
-    
+    //开始工作
     @IBAction func startTomato(sender: UIButton) {
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let tomatoViewController = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
-        let conguration = getConguration()
-        tomatoViewController.tomatoTime = Double(conguration.workTime * 60)
+        let times = getTimeSetting()
+        tomatoViewController.tomatoTime = Double(times.workTime * 60)
         var tomatoNum = getTomatoNum().tomatoNum
         let restNum = getTomatoNum().restNum
         tomatoNum += 1
@@ -224,6 +158,44 @@ class RestViewController: UIViewController {
         restNum -= 1
         saveTomatoAndRestNum(tomatoNum, restNum: restNum)
     }
-    
 
 }
+
+extension RestViewController:TimerDelegate{
+    func timerStateToController(timerWillState: String) {
+        switch timerWillState {
+        case timerState.rest:
+            self.countButton.setTitle(formatToDisplayTime(self.myTimer.fireTime), forState: .Normal)
+            //FIX:
+        default:
+            print("error : \(timerWillState)")
+        }
+    }
+    
+    func updateingTime(currentTime: Int) {
+        if UIView.areAnimationsEnabled() == true {
+            UIView.setAnimationsEnabled(false)
+        }
+        if currentTime == 0 {
+            UIView.setAnimationsEnabled(true)
+            tomatoStateLabel.hidden = true
+            countButton.setTitle("开始工作", forState: .Normal)
+            countButton.titleLabel?.font = UIFont.systemFontOfSize(36)
+            countButton.enabled = true
+            circularProgress.progress = 0
+            self.ripplesLayer.startAnimation()
+        }else{
+            print(currentTime)
+            countButton.setTitle(formatToDisplayTime(currentTime), forState: .Normal)
+            let normalizedProgress = Double(currentTime - 1) / tomatoTime
+            circularProgress.progress = normalizedProgress
+        }
+        
+        
+    }
+    
+    
+}
+
+
+

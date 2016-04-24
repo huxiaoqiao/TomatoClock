@@ -38,18 +38,18 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
         let editTextOffImg = image?.stretchableImageWithLeftCapWidth(3, topCapHeight: 2)
         editTextImgView.image = editTextOffImg;
         
-        let conguration = getConguration()
+        let times = getTimeSetting()
         if (NSUserDefaults.standardUserDefaults().valueForKey("workTime") != nil)
         {
-            tomatoLabel.text = "\(conguration.workTime)分钟"
-            shortrestLabel.text = "\(conguration.shortrestTime)分钟"
-            longrestLabel.text = "\(conguration.longrestTime)分钟"
+            tomatoLabel.text = "\(times.workTime)分钟"
+            shortrestLabel.text = "\(times.shortrestTime)分钟"
+            longrestLabel.text = "\(times.longrestTime)分钟"
         }
         NSNotificationCenter.defaultCenter().addObserverForName("congurationChanged", object: nil, queue: nil) { (note:NSNotification!) -> Void in
-            let conguration = getConguration()
-            self.tomatoLabel.text = "\(conguration.workTime)分钟"
-            self.shortrestLabel.text = "\(conguration.shortrestTime)分钟"
-            self.longrestLabel.text = "\(conguration.longrestTime)分钟"
+            let times = getTimeSetting()
+            self.tomatoLabel.text = "\(times.workTime)分钟"
+            self.shortrestLabel.text = "\(times.shortrestTime)分钟"
+            self.longrestLabel.text = "\(times.longrestTime)分钟"
         }
           self.view.backgroundColor = UIColor.init(colorLiteralRed: 27 / 255.0, green: 161 / 255.0, blue: 226 / 255.0, alpha: 1.0)
         
@@ -116,8 +116,8 @@ class ViewController: UIViewController , UITextFieldDelegate,UIViewControllerTra
         {
             
          let tomato:TomatoViewController! = segue.destinationViewController as! TomatoViewController
-            let conguration = getConguration()
-           tomato.tomatoTime = Double(conguration.workTime * 60)
+            let times = getTimeSetting()
+           tomato.tomatoTime = Double(times.workTime * 60)
             saveTomatoAndRestNum(1, restNum: 0)
             
             if (taskTextField.text == "")

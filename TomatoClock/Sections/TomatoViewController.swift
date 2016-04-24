@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class TomatoViewController: UIViewController {
     
@@ -26,6 +25,7 @@ class TomatoViewController: UIViewController {
     var shapeLayer:CAShapeLayer!
     var timer:NSTimer!
     let myTimer = Timer.sharedInstance
+    var ripplesLayer:DWRipplesLayer = DWRipplesLayer()
     
     /*********MARK -- Life cirle ************/
     
@@ -35,6 +35,7 @@ class TomatoViewController: UIViewController {
         //初始化UI元素
         self.initUIElements()
         myTimer.fireTime = Int(tomatoTime)
+        myTimer.timerWillState = timerState.start
         myTimer.delegate = self
         
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
@@ -89,9 +90,25 @@ class TomatoViewController: UIViewController {
         countButton.layer.borderWidth = 0.5
         countButton.layer.borderColor = UIColor.clearColor().CGColor
         countButton.enabled = false
-        
+
         //revealView
         revealView.layer.cornerRadius = 140
+        
+        let backView:UIView = UIView()
+        backView.bounds = CGRectMake(0, 0, 270, 270)
+        backView.layer.cornerRadius = 135
+        backView.center = trickView.center
+        backView.backgroundColor = self.view.backgroundColor
+        self.view.insertSubview(backView, belowSubview: countButton)
+        
+        
+        //ripplesLayer
+        self.view.layer .insertSublayer(self.ripplesLayer, below: backView.layer)
+        self.ripplesLayer.position = trickView.center
+        self.ripplesLayer.radius = 280
+        self.ripplesLayer.animationDuration = 4.0
+        
+        self.view .bringSubviewToFront(countButton)
         
         countButton.setTitle(formatToDisplayTime(Int(tomatoTime)), forState: .Normal)
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(TomatoViewController.updateProgress), userInfo: nil, repeats: true)
@@ -129,14 +146,14 @@ class TomatoViewController: UIViewController {
         
         let mainSB = UIStoryboard(name: "Main", bundle: nil)
         let rest = mainSB.instantiateViewControllerWithIdentifier("RestViewController") as! RestViewController
-        let conguration = getConguration()
+        let times = getTimeSetting()
         let tomatoNum:Int = getTomatoNum().tomatoNum
         if (tomatoNum != 0 && tomatoNum % 4 == 0)
         {
-           rest.tomatoTime = Double(conguration.longrestTime * 60)
+           rest.tomatoTime = Double(times.longrestTime * 60)
         }else
         {
-            rest.tomatoTime = Double(conguration.shortrestTime * 60)
+            rest.tomatoTime = Double(times.shortrestTime * 60)
         }
         //休息次数加一
         var restNum = getTomatoNum().restNum
@@ -183,16 +200,17 @@ extension TomatoViewController:TimerDelegate{
             countButton.setTitle("开始休息", forState: .Normal)
             countButton.titleLabel?.font = UIFont.systemFontOfSize(36)
             countButton.enabled = true
-            self.view .bringSubviewToFront(countButton)
             circularProgress.progress = 0
+            self.ripplesLayer.startAnimation()
         }else{
-            print(currentTime)
+            //print(currentTime)
             countButton.setTitle(formatToDisplayTime(currentTime), forState: .Normal)
             let normalizedProgress = Double(currentTime - 1 ) / tomatoTime
             circularProgress.progress = normalizedProgress
             
         }
     }
+ 
     
 }
 

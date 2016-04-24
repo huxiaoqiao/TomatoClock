@@ -50,7 +50,7 @@ class CheckViewController: UIViewController {
         rightButton.layer.borderWidth = 0.5
         taskTitleLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("TaskTitle") as? String
 
-        let tomato_break = UIImage(named: "tomato_break");
+        //let tomato_break = UIImage(named: "tomato_break");
         
         checkUndoneTitles = ["都已经开始了,离完成还远吗？","坚持一下，胜利就在前方！"]
         checkDoneTitles = ["我是超人，手指一戳，任务完成！","好开心，经过\(getTomatoNum().tomatoNum)个番茄的奋战和\(getTomatoNum().restNum)次休息，终于完成！"]
@@ -192,8 +192,8 @@ class CheckViewController: UIViewController {
             //开始休息
             let storyBoard = UIStoryboard(name: "Main", bundle: nil);
             let rest = storyBoard.instantiateViewControllerWithIdentifier("RestViewController") as! RestViewController
-            let conguration = getConguration()
-            rest.tomatoTime = Double(conguration.shortrestTime * 60)
+            let times = getTimeSetting()
+            rest.tomatoTime = Double(times.shortrestTime * 60)
             rest.taskTitle = taskTitleLabel.text
             self.presentViewController(rest, animated: true, completion: { () -> Void in
                 self.removeFromParentViewController()
@@ -214,8 +214,8 @@ class CheckViewController: UIViewController {
             //开始工作
             let storyBoard = UIStoryboard(name: "Main", bundle: nil);
             let tomato = storyBoard.instantiateViewControllerWithIdentifier("TomatoViewController") as! TomatoViewController
-            let conguration = getConguration()
-            tomato.tomatoTime = Double(conguration.workTime * 60)
+            let times = getTimeSetting()
+            tomato.tomatoTime = Double(times.workTime * 60)
             tomato.taskTitle = taskTitleLabel.text
             self.presentViewController(tomato, animated: true, completion: { () -> Void in
                 self.removeFromParentViewController()

@@ -33,6 +33,7 @@
 		1BE6B1CC1CA9FC3C006E88FF /* ShareSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6B1CB1CA9FC3C006E88FF /* ShareSDKTool.m */; };
 		1BED7D661CA8C69D0046F56C /* JSPatchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BED7D651CA8C69D0046F56C /* JSPatchTool.m */; };
 		22B4AD5592894A9EEF4821A6 /* Pods_TomatoClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980F3E3DF57096670AA3A1BC /* Pods_TomatoClock.framework */; };
+		3361D5FF1CCBDA190080750A /* DWRipplesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3361D5FE1CCBDA190080750A /* DWRipplesLayer.m */; };
 		33CAAB141CCBCF1A0021A4DA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33CAAB131CCBCF1A0021A4DA /* AVFoundation.framework */; };
 		442CA9261B05F7E7003B73B3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA9251B05F7E7003B73B3 /* ModalViewController.swift */; };
 		442CA9301B05FBF5003B73B3 /* TimeSetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CA92F1B05FBF5003B73B3 /* TimeSetModalViewController.swift */; };
@@ -143,6 +144,8 @@
 		1BE6B1CB1CA9FC3C006E88FF /* ShareSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSDKTool.m; sourceTree = "<group>"; };
 		1BED7D641CA8C69D0046F56C /* JSPatchTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPatchTool.h; sourceTree = "<group>"; };
 		1BED7D651CA8C69D0046F56C /* JSPatchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPatchTool.m; sourceTree = "<group>"; };
+		3361D5FD1CCBDA190080750A /* DWRipplesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWRipplesLayer.h; sourceTree = "<group>"; };
+		3361D5FE1CCBDA190080750A /* DWRipplesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWRipplesLayer.m; sourceTree = "<group>"; };
 		33CAAB131CCBCF1A0021A4DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		442CA9251B05F7E7003B73B3 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		442CA92F1B05FBF5003B73B3 /* TimeSetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSetModalViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +355,15 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
+		3361D5FA1CCBD8C30080750A /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				3361D5FD1CCBDA190080750A /* DWRipplesLayer.h */,
+				3361D5FE1CCBDA190080750A /* DWRipplesLayer.m */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		442CA9221B05F7C4003B73B3 /* CustomTransition */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +471,7 @@
 		44D515F11B0381F100592221 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				3361D5FA1CCBD8C30080750A /* Animation */,
 				44D516001B03839B00592221 /* AboutViewController.swift */,
 				44D516011B03839B00592221 /* CheckViewController.swift */,
 				44D516021B03839B00592221 /* RestViewController.swift */,
@@ -760,6 +773,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3361D5FF1CCBDA190080750A /* DWRipplesLayer.m in Sources */,
 				1BE6B1CC1CA9FC3C006E88FF /* ShareSDKTool.m in Sources */,
 				44D5160A1B03839B00592221 /* TomatoViewController.swift in Sources */,
 				44D515FC1B03834300592221 /* TimeSettingView.swift in Sources */,

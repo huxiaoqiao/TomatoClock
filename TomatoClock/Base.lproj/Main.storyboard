@@ -698,7 +698,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-UM-nbc" userLabel="TtrickView">
                                 <rect key="frame" x="25" y="85" width="270" height="270"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-6f-s6Y">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-6f-s6Y">
                                         <rect key="frame" x="43" y="60" width="184" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="lB7-Pc-3be"/>
@@ -1013,7 +1013,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJk-wg-8hU" customClass="KYCircularProgress" customModule="TomatoClock" customModuleProvider="target">
-                                <rect key="frame" x="20" y="40" width="280" height="280"/>
+                                <rect key="frame" x="20" y="80" width="280" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="GgW-31-xex"/>
@@ -1021,7 +1021,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0D-vb-FAp">
-                                <rect key="frame" x="25" y="45" width="270" height="270"/>
+                                <rect key="frame" x="25" y="85" width="270" height="270"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="休息中…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1H-Xh-iq3">
                                         <rect key="frame" x="43" y="60" width="184" height="21"/>
@@ -1029,7 +1029,7 @@
                                             <constraint firstAttribute="height" constant="21" id="4H4-8Y-mTP"/>
                                             <constraint firstAttribute="width" constant="184" id="nny-ED-iax"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1044,7 +1044,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未命名任务" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-xq-O1h">
-                                <rect key="frame" x="0.0" y="350" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="390" width="320" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ofs-fg-ntq"/>
                                 </constraints>
@@ -1053,12 +1053,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUa-Km-zUK">
-                                <rect key="frame" x="35" y="55" width="250" height="250"/>
+                                <rect key="frame" x="35" y="95" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="cxg-zF-uuT"/>
                                     <constraint firstAttribute="width" constant="250" id="ncw-jx-i08"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="80"/>
                                 <state key="normal" title="25:00">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1079,12 +1079,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Csd-xq-O1h" secondAttribute="trailing" constant="-16" id="QxL-cO-vS5"/>
                             <constraint firstItem="Csd-xq-O1h" firstAttribute="leading" secondItem="EOV-CM-d30" secondAttribute="leadingMargin" constant="-16" id="Rln-ab-Nf0"/>
                             <constraint firstItem="Pf7-jV-iKz" firstAttribute="centerY" secondItem="Ggh-RX-5Sc" secondAttribute="centerY" id="ZIR-w6-rlJ"/>
-                            <constraint firstItem="lUa-Km-zUK" firstAttribute="top" secondItem="gVz-s0-vM5" secondAttribute="bottom" constant="35" id="g6w-Rm-E3n"/>
+                            <constraint firstItem="lUa-Km-zUK" firstAttribute="top" secondItem="gVz-s0-vM5" secondAttribute="bottom" constant="75" id="g6w-Rm-E3n"/>
                             <constraint firstAttribute="centerX" secondItem="lUa-Km-zUK" secondAttribute="centerX" id="giH-sm-OQQ"/>
                             <constraint firstItem="Pf7-jV-iKz" firstAttribute="centerX" secondItem="Ggh-RX-5Sc" secondAttribute="centerX" id="gwM-gY-iTJ"/>
                             <constraint firstAttribute="width" secondItem="Pf7-jV-iKz" secondAttribute="height" multiplier="16:3" id="mwW-T2-1ec"/>
-                            <constraint firstItem="xJk-wg-8hU" firstAttribute="top" secondItem="gVz-s0-vM5" secondAttribute="bottom" constant="20" id="nng-Gz-NBc"/>
-                            <constraint firstItem="j0D-vb-FAp" firstAttribute="top" secondItem="gVz-s0-vM5" secondAttribute="bottom" constant="25" id="sSX-KA-sdw"/>
+                            <constraint firstItem="xJk-wg-8hU" firstAttribute="top" secondItem="gVz-s0-vM5" secondAttribute="bottom" constant="60" id="nng-Gz-NBc"/>
+                            <constraint firstItem="j0D-vb-FAp" firstAttribute="top" secondItem="gVz-s0-vM5" secondAttribute="bottom" constant="65" id="sSX-KA-sdw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m9N-qq-slJ"/>
@@ -1120,6 +1120,6 @@
         <image name="tomato" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Jl-sO-yjX"/>
+        <segue reference="CIf-sr-ySV"/>
     </inferredMetricsTieBreakers>
 </document>

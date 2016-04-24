@@ -63,11 +63,13 @@ class Timer: NSObject {
             fireDate = NSDate(timeIntervalSinceNow: Double(fireTime))
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
+            break;
         case timerState.giveUp:
             self.currentTime = fireTime
             self.timerCurrentState = timerState.giveUp
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
+            break;
         case timerState.rest:
             timerCurrentState = timerState.rest
             // set fireDate
@@ -76,17 +78,20 @@ class Timer: NSObject {
              currentTime = restFireTime
             
             delegate?.timerStateToController(timerState.giveUp)
+            
             timerWillState = timerState.giveUp
+            break;
         case timerState.workingComplete:
             delegate?.timerStateToController(timerState.workingComplete)
             timerWillState = timerState.rest
             duractionTime = restFireTime
-        
+            break;
         case timerState.restComplete:
             delegate?.timerStateToController(timerState.restComplete)
             
             timerWillState = timerState.start
             duractionTime = fireTime
+            break;
         default:
             print("not have this timerState \(timerWillState)")
         }

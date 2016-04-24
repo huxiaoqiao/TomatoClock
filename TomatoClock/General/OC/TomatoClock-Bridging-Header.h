@@ -17,7 +17,7 @@
 #import "ShowShareSDK.h"
 #import "JSPatchTool.h"
 #import "ShareSDKTool.h"
-
+#import "DWRipplesLayer.h"
 
 #define TomatoClock_Bridging_Header_h
 

@@ -49,13 +49,13 @@ class SettingViewController: UIViewController {
             longRestTimeLabel.text = "20"
         }else
         {
-            let conguration = getConguration()
-            workTimeSlider.value = Float(conguration.workTime)
-            shortRestTImeSlider.value = Float(conguration.shortrestTime)
-            longRestTimeSlider.value = Float(conguration.longrestTime)
-            workTimeLabel.text = "\(conguration.workTime)"
-            shortRestTimeLabel.text = "\(conguration.shortrestTime)"
-            longRestTimeLabel.text = "\(conguration.longrestTime)"
+            let times = getTimeSetting()
+            workTimeSlider.value = Float(times.workTime)
+            shortRestTImeSlider.value = Float(times.shortrestTime)
+            longRestTimeSlider.value = Float(times.longrestTime)
+            workTimeLabel.text = "\(times.workTime)"
+            shortRestTimeLabel.text = "\(times.shortrestTime)"
+            longRestTimeLabel.text = "\(times.longrestTime)"
         }
         
         vibrateSwitch.setOn(getVibrateSwitch(), animated: false)
@@ -74,7 +74,7 @@ class SettingViewController: UIViewController {
     
     @IBAction func back(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        saveConguration(Int(workTimeSlider.value), shortrestTime: Int(shortRestTImeSlider.value), longrestTime: Int(longRestTimeSlider.value))
+        saveTimeSetting(Int(workTimeSlider.value), shortrestTime: Int(shortRestTImeSlider.value), longrestTime: Int(longRestTimeSlider.value))
         postNotification()
     }
     
