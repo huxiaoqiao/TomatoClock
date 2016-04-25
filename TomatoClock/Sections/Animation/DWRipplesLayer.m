@@ -83,11 +83,14 @@
   
   // 改变 alpha (关键帧动画)
   CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-  opacityAnimation.values = @[@(self.fromValueForAlpha), @0.6, @0];
+  opacityAnimation.values = @[@(self.fromValueForAlpha), @1, @0];
   opacityAnimation.keyTimes = @[@0, @(0.4), @1];
   opacityAnimation.duration = self.animationDuration;
   
   self.ripplesAnimationGroup.animations = @[scaleAnimation, opacityAnimation];
+    
+    
+    
 }
 
 

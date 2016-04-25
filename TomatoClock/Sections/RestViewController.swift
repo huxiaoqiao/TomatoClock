@@ -57,6 +57,10 @@ class RestViewController: UIViewController {
             timer .invalidate()
             timer = nil
         }
+        if myTimer.timer != nil {
+            myTimer.timer.invalidate()
+            myTimer.timer = nil
+        }
         
     }
     
@@ -88,22 +92,26 @@ class RestViewController: UIViewController {
         countButton.layer.borderWidth = 0.5
         countButton.layer.borderColor = UIColor.clearColor().CGColor
         
+        let center:CGPoint = CGPointMake(SCREEN_WIDTH / 2.0, self.trickView.center.y)
+
         let backView:UIView = UIView()
         backView.bounds = CGRectMake(0, 0, 270, 270)
         backView.layer.cornerRadius = 135
-        backView.center = trickView.center
+        backView.center = center
         backView.backgroundColor = self.view.backgroundColor
         self.view.insertSubview(backView, belowSubview: trickView)
         
         //rippleLayer
         self.view.layer.insertSublayer(self.ripplesLayer, below: backView.layer)
-        self.ripplesLayer.position = trickView.center
+
+        self.ripplesLayer.position = center
         self.ripplesLayer.radius = 280
         self.ripplesLayer.animationDuration = 4.0
         
         self.view.bringSubviewToFront(countButton)
         
         countButton.setTitle(formatToDisplayTime(Int(tomatoTime)), forState: .Normal)
+        countButton.enabled = false
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(RestViewController.updateProgress), userInfo: nil, repeats: true)
         
         
@@ -153,6 +161,7 @@ class RestViewController: UIViewController {
     //停止番茄钟
     @IBAction func stop(sender: AnyObject) {
         //休息数减一
+        
         let tomatoNum = getTomatoNum().tomatoNum
         var restNum = getTomatoNum().restNum
         restNum -= 1
@@ -193,7 +202,6 @@ extension RestViewController:TimerDelegate{
         
         
     }
-    
     
 }
 

@@ -59,6 +59,10 @@ class TomatoViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
         UIView.setAnimationsEnabled(true)
         
         UIApplication.sharedApplication().resignFirstResponder()
@@ -97,14 +101,15 @@ class TomatoViewController: UIViewController {
         let backView:UIView = UIView()
         backView.bounds = CGRectMake(0, 0, 270, 270)
         backView.layer.cornerRadius = 135
-        backView.center = trickView.center
+        let center:CGPoint = CGPointMake(SCREEN_WIDTH / 2, self.trickView.center.y)
+        backView.center = center
         backView.backgroundColor = self.view.backgroundColor
         self.view.insertSubview(backView, belowSubview: countButton)
         
         
         //ripplesLayer
         self.view.layer .insertSublayer(self.ripplesLayer, below: backView.layer)
-        self.ripplesLayer.position = trickView.center
+        self.ripplesLayer.position = center
         self.ripplesLayer.radius = 280
         self.ripplesLayer.animationDuration = 4.0
         
@@ -211,6 +216,7 @@ extension TomatoViewController:TimerDelegate{
         }
     }
  
+
     
 }
 
